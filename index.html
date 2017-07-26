@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="canvas" width="800" height="600" style="border:1px solid red;"></canvas>
+</body>
+<script>
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+
+    function Clock(opt) {
+
+        for (var key in opt) {
+            this[key] = opt[key];
+        }
+
+        this.init();
+    }
+    Clock.prototype = {
+        constructor: Clock,
+        init: function () {
+            var self=this;
+
+            var timer=setInterval(function(){
+                ctx.clearRect(0,0,canvas.width,canvas.height);
+
+
+                //1、表盘大圆
+                self.drawBigCircle();
+                //2、绘制刻度线
+                self.drawTicks();
+                //3、绘制指针
+                self.drawPoints();
+
+
+                ctx.save();
+                ctx.font="20px 微软雅黑";
+
+                ctx.strokeText((new Date()).toLocaleString(),200,50);
+
+                ctx.restore();
+
+            },1000)
+
+
+        },
+        //1、绘制大圆：需要大圆的圆心和半径-->参数
+        drawBigCircle: function () {
+            ctx.save();     //保存最初的状态
+
+            ctx.beginPath();
+            ctx.arc(this.bigX, this.bigY, this.bigR, 0, 2 * Math.PI);
+            ctx.lineWidth = this.bigLineWidth;
+            ctx.strokeStyle = this.bigColor;
+
+            ctx.stroke();
+
+            ctx.restore();      //恢复到最初的状态
+
+        },
+
+        //2、绘制刻度线
+        drawTicks: function () {
+            //分析：有长短不一的刻度线，所以先把他们当成相同的来处理，处理完毕之后，再处理不同的地方
+
+
+            //a、计算每一个刻度线的弧度值
+            var beginRadian = -Math.PI / 3;         //第一个刻度线的弧度值
+            var singleRadian = 2 * Math.PI / 60;      //相邻刻度线的弧度差
+
+            for (var i = 0; i < 60; i++) {
+
+                var length, lineWidth;
+
+                var radian = beginRadian + singleRadian * i;
+
+                //处理刻度线：不同的线宽和长度
+                if (i % 5 == 0) {
+                    length = this.tick.bigLength;
+                    lineWidth = this.tick.bigWidth;
+
+                    //ps：因为只有大刻度线才有文字，所以直接把绘制文字的方法在这里调用
+                    //文字的内容：i:5 10 15 20
+                    //            1  2  3  4
+                    //-->文字的内容=i/5
+
+                    this.drawText(i/5+1,radian);
+
+                } else {
+                    length = this.tick.smallLength;
+                    lineWidth = this.tick.smallWidth;
+                }
+
+
+                //每一个弧度线的弧度值？
+                //beginRadian+singleRadian*0
+                //beginRadian+singleRadian*1
+                //beginRadian+singleRadian*2
+
+
+
+                var h1 = (this.bigR - this.bigLineWidth / 2) * Math.sin(radian);
+                var b1 = (this.bigR - this.bigLineWidth / 2) * Math.cos(radian);
+
+                //-->刻度线终点坐标
+                var x1 = this.bigX + b1;
+                var y1 = this.bigY + h1;
+
+
+                var h2 = (this.bigR - this.bigLineWidth / 2 - length) * Math.sin(radian);
+                var b2 = (this.bigR - this.bigLineWidth / 2 - length) * Math.cos(radian);
+
+                //-->刻度线的起点坐标：
+                var x2 = this.bigX + b2;
+                var y2 = this.bigY + h2;
+
+                //绘制刻度线
+                ctx.save();
+
+                ctx.beginPath();
+                ctx.moveTo(x1, y1);
+                ctx.lineTo(x2, y2);
+
+                ctx.lineWidth = lineWidth;
+                ctx.stroke();
+
+
+                ctx.restore();
+
+            }
+        },
+
+        //3、绘制指针
+        drawPoints:function(){
+
+            //a、解决指针的终点的弧度值的问题
+
+            //i：-->给定一个时间
+            var date=new Date();
+            //ii:  计算出时分秒
+            var hours=date.getHours()%12;          //0-23之间     -->0-12以内
+            var minutes=date.getMinutes();      //0-59之间
+            var seconds=date.getSeconds();      //0-59之间
+            //iii：计算出不同指针的位置(弧度值)
+
+            //1、计算出时针的弧度值-->要知道相邻时针之间的弧度差
+
+            var r=((minutes*60+seconds)/3600)*Math.PI/6;
+
+            var hourRadian=hours*2*Math.PI/12-Math.PI/2+r;
+
+            var rm=(Math.PI*seconds/60/30);
+            var minuteRadian=minutes*2*Math.PI/60-Math.PI/2+rm;
+
+            var secondRadian=seconds*2*Math.PI/60-Math.PI/2;
+
+            //2、给出一个指针的长度，绘制出指针
+            this.drawSinglePoint(30,hourRadian,8);
+            this.drawSinglePoint(50,minuteRadian,6);
+            this.drawSinglePoint(80,secondRadian,4);
+
+
+
+
+        },
+
+        //绘制单个指针
+        drawSinglePoint:function(length,radian,lineWidth){
+            var h=length* Math.sin(radian);
+            var b=length* Math.cos(radian);
+
+            var x=this.bigX+b;
+            var y=this.bigY+h;
+
+            ctx.save();
+
+            ctx.beginPath();
+            ctx.moveTo(this.bigX,this.bigY);
+            ctx.lineTo(x,y);
+
+            ctx.lineWidth=lineWidth;
+
+            ctx.stroke();
+
+            ctx.restore();
+        },
+
+        /**
+         * 绘制刻度盘文字
+         * @param text 文字的内容
+         * @param radian 文字的弧度值
+         */
+        drawText:function(text,radian){
+            //解决文字的坐标？
+            //-->同样的根据三角函数-->斜边=大圆的半径-大刻度线的长度-5
+            var length=this.bigR-this.tick.bigLength-15;
+
+            //Math.sin(raidan)=h/length
+            //--->h=length*Math.sin(radian)
+
+            var h=length*Math.sin(radian);
+            var b=length*Math.cos(radian);
+
+            //算出文字的坐标
+            var x=this.bigX+b;
+            var y=this.bigY+h;
+
+
+            ctx.save();
+            ctx.font="16px 微软雅黑";
+
+            ctx.textAlign="center";
+            ctx.textBaseline="middle";
+
+            ctx.fillText(text,x,y);
+
+            ctx.restore();
+
+        }
+
+    }
+
+    new Clock({
+        bigX: 300,
+        bigY: 300,
+        bigR: 150,        //大圆的半径
+        bigLineWidth: 10,     //大圆的线宽
+        bigColor: "blue",       //大圆的颜色
+        //刻度线的特性
+        tick: {
+            bigLength: 24,
+            bigWidth: 8,
+            smallLength: 10,
+            smallWidth: 4
+        },
+        //可以根据需求让用户改变指针/刻度盘文字的相关属性
+        point:{
+            hour:{
+                color:"red"
+            },
+            minute:{
+                color:"blue"
+            },
+            second:{
+                color:"green"
+            }
+        },
+        tickText:{
+
+        }
+
+    });
+</script>
+</html>
