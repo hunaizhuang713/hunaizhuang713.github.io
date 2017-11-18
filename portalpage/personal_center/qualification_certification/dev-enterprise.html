@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>开发者中心</title>
+
+    <script>
+        document.querySelector('html').style.fontSize = window.screen.width / 10 + 'px';
+    </script>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+
+</head>
+
+<link rel="stylesheet" href="./css/dev-personal.css"/>
+<link rel="stylesheet" href="../../../common/css/common.css"/>
+<script src="lib/jquery/jquery.min.js"></script>
+<body>
+
+<!--头部开始-->
+<div class="common-one-header">
+
+</div>
+
+<!--头部结束-->
+
+<div class="dev-enterprise-container">
+    <div class="nav">
+        <ul>
+            <li><a href="./dev-personal.html" >个人开发者</a></li>
+            <li><a href="javascript:void (0)" class="current">企业开发者</a></li>
+        </ul>
+    </div>
+    <!--表单开始-->
+    <div class="dev-con-form">
+        <form action="">
+            <div class="name">
+                <b></b>
+                <p class="name-prompt">请输入公司名称</p>
+                <span><i>*</i> 公司名称</span>
+                <input type="text" placeholder="公司名称（默认为发票开头）"/>
+
+            </div>
+            <div class="address">
+                <b></b>
+                <p class="address-prompt">请填写公司注册地址</p>
+                <span><i>*</i> 公司注册地址</span>
+                <input type="text" placeholder="不超过50字"/>
+
+            </div>
+
+            <div class="type">
+                <b></b>
+                <p class="type-prompt">请选择证件类型</p>
+                <span><i>*</i> 证件类型</span><span class="icon_Arrow"></span>
+                <select name="" id="">
+                    <option value="">请选择证件类型</option>
+                    <option value="">护照</option>
+                    <option value="">护照身份证</option>
+                </select>
+            </div>
+            <div class="code">
+                <b></b>
+                <p class="code-prompt">请输入统一社会信用代码</p>
+                <span><i>*</i> 统一社会信用代码</span>
+                <input type="text" placeholder="证件号码"/>
+            </div>
+            <div class="person">
+                <b></b>
+                <p class="person-prompt">请填写法定代表人</p>
+                <span><i>*</i> 法定代表人</span>
+                <input type="text" placeholder="请输入法定代表人"/>
+            </div>
+            <div class="phone">
+                <b></b>
+                <p class="phone-prompt">请输入公司电话</p>
+                <span><i>*</i> 公司电话</span>
+                <input type="text" placeholder="请输入公司电话"/>
+            </div>
+            <div class="pic">
+                <span><i>*</i> 证件照片</span>
+            </div>
+            <div class="pictrue">
+
+            </div>
+        </form>
+        <div class="explain">
+            <p>1.护照身份证护照身份证n</p>
+            <p>2.护照身份证护照身份证</p>
+            <p>3.护照身份证护照身份证</p>
+            <p>4.护照身份证护照身份证</p>
+            <p>5.护照身份证护照身份证护照身份证</p>
+        </div>
+        <div class="submit">提交审核</div>
+    </div>
+
+</div>
+</body>
+<script src="../../../common/js/common.js"></script>
+<script >
+    //加载头部
+    loadCommon('../../../common/common.html')
+</script>
+</html>

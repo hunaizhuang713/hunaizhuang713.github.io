@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>开发者中心</title>
+
+    <script>
+        document.querySelector('html').style.fontSize = window.screen.width / 10 + 'px';
+    </script>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+
+</head>
+
+<link rel="stylesheet" href="./css/dev-personal.css"/>
+<link rel="stylesheet" href="../../../common/css/common.css"/>
+<script src="lib/jquery/jquery.min.js"></script>
+<body>
+
+<!--头部开始-->
+<div class="common-one-header">
+
+    <!--<span>-->
+        <!--<img src="./images/Statusbar_logo.png" alt=""/>-->
+    <!--</span>-->
+    <!--<div>-->
+        <!--<a  href="javascript:void(0)" >-->
+            <!--<img src="./images/Navigationbar_Personalcenter.png" alt=""/>-->
+        <!--</a>-->
+        <!--<a  href="javascript:void(0)" class="a-two">-->
+            <!--<img src="./images/Home_Menu.png" alt=""/>-->
+        <!--</a>-->
+
+    <!--</div>-->
+</div>
+
+<!--头部结束-->
+
+<div class="dev-personal-container">
+    <div class="nav">
+        <ul>
+            <li><a href="javascript:void (0)" class="current">个人开发者</a></li>
+            <li><a href="./dev-enterprise.html">企业开发者</a></li>
+        </ul>
+    </div>
+    <!--表单开始-->
+    <div class="dev-con-form">
+        <form action="">
+            <div class="name">
+                <b></b>
+                <p class="one">请填写真实姓名</p>
+                <span><i>*</i> 真实姓名</span>
+                <input type="text" placeholder="输入您的真实姓名"/>
+
+            </div>
+            <div class="type">
+                <b></b>
+                <p class="two">请选择证件类型</p>
+                <span><i>*</i> 证件类型</span><span class="icon_Arrow"></span>
+                <select name="" id="">
+                    <option value="">请选择证件类型</option>
+                    <option value="">护照</option>
+                    <option value="">护照身份证</option>
+                </select>
+            </div>
+            <div class="number">
+                <b></b>
+                <p class="three">请证件号码</p>
+                <span><i>*</i> 证件号码</span>
+                <input type="text" placeholder="填写证件号码"/>
+            </div>
+            <div class="pic">
+                <span><i>*</i> 证件照片</span>
+            </div>
+            <div class="pictrue">
+            </div>
+
+        </form>
+        <div class="explain">
+            <p>1.护照身份证护照身份证n</p>
+            <p>2.护照身份证护照身份证</p>
+            <p>3.护照身份证护照身份证</p>
+            <p>4.护照身份证护照身份证</p>
+            <p>5.护照身份证护照身份证护照身份证</p>
+        </div>
+        <div class="submit">提交审核</div>
+
+    </div>
+
+</div>
+</body>
+<script src="../../../common/js/common.js"></script>
+<script >
+    //加载头部
+    loadCommon('../../../common/common.html')
+</script>
+</html>

@@ -1,0 +1,20 @@
+{
+"title":"设置账号信息",
+"jkdefine":"public static int setAccountInfo(string userid,string pwd,int priority,string masterIpAddress,string ipAddress1,string ipAddress2,string ipAddress3);",
+"reqdesc":"",
+"reqparam":[
+{"param_key":"userid","param_type":"string","param_need":"是","param_desc":"用户账号：长度最大6个字节，统一大写"},
+{"param_key":"pwd","param_type":"string","param_need":"是","param_desc":"用户密码：长度最大32位字符串"},
+{"param_key":"priority","param_type":"int","param_need":"是","param_desc":"发送优先级：1到9，数字越小，优先级越高"},
+{"param_key":"ipAddress1","param_type":"string","param_need":"是","param_desc":"主IP信息：IP(域名)和端口之间用英文冒号（如192.168.0.188:8082，www.montnets.com:8082）"},
+{"param_key":"ipAddress2","param_type":"string","param_need":"是","param_desc":"备IP1信息：IP(域名)和端口之间用英文冒号（如192.168.0.188:8083，www.montnets.com:8083）"},
+{"param_key":"ipAddress3","param_type":"string","param_need":"是","param_desc":"备IP2信息：IP(域名)和端口之间用英文冒号（如192.168.0.188:8084，www.montnets.com:8084）"},
+{"param_key":"ipAddress4","param_type":"string","param_need":"是","param_desc":"备IP3信息：IP(域名)和端口之间用英文冒号（如192.168.0.188:8085，www.montnets.com:8085）"}
+],
+"reqotherdesc":"",
+"reqotherparam":[],
+"respdesc":[
+{"resp_desc":"设置成功：返回值为0，移除账号成功。"},
+{"resp_desc":"设置失败：返回值非0，返回值为错误代码。错误代码详见附录。"}
+]
+}

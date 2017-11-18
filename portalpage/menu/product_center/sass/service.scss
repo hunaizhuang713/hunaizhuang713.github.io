@@ -1,0 +1,151 @@
+
+//rem转换
+@function  p2r($size){
+  @return  ($size/75*1rem)
+}
+//短信验证开始
+.msg-ver-container{
+  padding-bottom: p2r(113);
+  .msg-ver-banner{
+    width: 100%;
+    height: p2r(607);
+    img{
+      width: 100%;
+      height: 100%;
+
+    }
+  }
+
+  //优势和价格标题
+  .title{
+    height: p2r(120);
+    text-align: center;
+    line-height: p2r(120);
+    background-color: #f4f4f4;
+    color: #333;
+    font-size: p2r(32);
+    font-weight: 700;
+  }
+  //优势
+  .advantage{
+    .advantage-list{
+      width: 100%;
+
+      padding-left: p2r(50);
+      padding-riht: p2r(10);
+      ul{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap:wrap;
+        padding-top: p2r(50);
+        padding-bottom: p2r(50);
+
+        li{
+          width: 50%;
+          height:p2r(296);
+          .top{
+
+            span:nth-child(1){
+              display: inline-block;
+              height: p2r(60);
+              width: p2r(60);
+              vertical-align: middle;
+              img{
+                display: block;
+                width: 100%;
+                height: 100%;
+              }
+            }
+            span:nth-child(2){
+              margin-left: p2r(28);
+              display: inline-block;
+              vertical-align: middle;
+              font-size: p2r(30);
+              font-weight: 700;
+            }
+          }
+          .bottom{
+            p{
+              width: 90%;
+              margin-top: p2r(20);
+              font-size: p2r(26);
+              line-height: p2r(36);
+            }
+          }
+        }
+        li:nth-child(2),li:nth-child(4){
+         padding-left: p2r(42);
+        }
+        //  第2个li
+        li:nth-child(2){
+          padding-left: p2r(42);
+        }
+        //  第4个li
+        li:nth-child(4){
+          padding-left: p2r(42);
+        }
+      }
+    }
+
+  }
+  //价格
+  .price{
+    .title{
+      span{
+        color: red;
+      }
+    }
+    table{
+      width: 100%;
+      font-size: p2r(28);
+      background-color: #f4f4f4;
+      padding-bottom: p2r(10);
+      tr{
+        height: p2r(92);
+        td:nth-child(2){
+          color: red;
+        }
+      }
+      tr:first-child td{
+        font-weight: 700;
+        color:#333;
+      }
+      tr:first-child{
+        td:nth-child(2){
+          position: relative;
+          .act-icon{
+            width: p2r(86);
+            height: p2r(38);
+            background: url("../images/icon_0.04.png");
+            background-size: 100% 100%;
+            position: absolute;
+            left: 50%;
+            top: p2r(-4);
+            margin-left: p2r(-43);
+          }
+        }
+      }
+      tr:nth-child(even){
+        background-color: #fff;
+      }
+      tr:nth-child(odd){
+        background-color: #f1fcfe;
+      }
+      td{
+        text-align: center;
+      }
+    }
+  }
+
+}
+.pro-common-mask{
+  width: 100%;
+  height: p2r(3000);
+  position: absolute;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(5, 5, 5, 0.7);
+  display: none;
+}
+

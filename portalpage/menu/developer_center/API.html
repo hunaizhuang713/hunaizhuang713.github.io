@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>开发者中心</title>
+
+    <script>
+        document.querySelector('html').style.fontSize = window.screen.width / 10 + 'px';
+    </script>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+
+</head>
+
+<link rel="shortcut icon" href="../../../favicon.ico">
+<link rel="stylesheet" href="../../../common/css/common.css"/>
+
+<link rel="stylesheet" href="./css/api.css"/>
+<script src="../../../lib/jquery/jquery.min.js"></script>
+<body>
+
+<!--头部开始-->
+<div class="common-one-header">
+
+</div>
+<!--头部结束-->
+<!--头部菜单栏-->
+<div class="common-one-header-menu">
+</div>
+
+<div class="api-container">
+
+    <div class="top">
+        <div class="nav">
+            <ul>
+                <li ><a href="./dev-center.html">开发者中心</a></li>
+                <li><a href="./SDK.html">SDK文档</a></li>
+                <li><a href="javascript:void (0)" class="current">API文档</a> </li>
+            </ul>
+            <div class="text">
+                <p >您希望查看使用&nbsp;&nbsp; <span>短信语音</span> &nbsp;<span></span>&nbsp;&nbsp; 发送的 &nbsp;&nbsp;<span>接口类型</span> &nbsp;<span></span>&nbsp;&nbsp; API 文档。</p>
+            </div>
+        </div>
+        <a href="javascript:void(0)" class="look">查看</a>
+    </div>
+
+    <!-- 点击弹出-->
+    <div class="msg-voi">
+        <i></i>
+        <ul>
+            <li>短信</li>
+            <li>语音</li>
+        </ul>
+    </div>
+    <div class="type">
+        <i></i>
+        <ul>
+            <li>单条发送接口</li>
+            <li>相同内容群发接口</li>
+            <li>个性化群发接口</li>
+            <li>获取上行接口</li>
+            <li>获取状态报告接口</li>
+            <li>查询余额</li>
+        </ul>
+    </div>
+    <!-- 点击弹出结束-->
+    <div class="bottom">
+        <div class="list">
+            <div class="left">
+                <p>短信 API 简介</p>
+                <img src="./images/icon_Shortmessage.png" alt=""/>
+                <p>保证用户快捷使用</p>
+                <span></span>
+            </div>
+            <div class="right">
+                <a href="./API-msg.html">查看详情</a>
+            </div>
+        </div>
+        <div class="list">
+            <div class="left">
+                <p>语音 API 简介</p>
+                <img src="./images/icon_Voice.png" alt=""/>
+                <p>快速接入梦网云通信平台</p>
+                <span></span>
+            </div>
+            <div class="right">
+                <a href="./API-voi.html">查看详情</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="../../../common/js/common.js"></script>
+<script src="./js/sdk-api.js"></script>
+
+</html>
