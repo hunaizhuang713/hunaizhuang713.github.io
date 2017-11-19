@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>开发者中心 API文档</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="../frame/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="../frame/css/home.css" />
+		<link rel="stylesheet" href="./css/document.css" />
+		<link rel="shortcut icon" href="../common/img/favicon.ico">
+		<link rel="stylesheet" href="css/api_document.css">
+		 <!--[if lt IE 9]>
+	      <script src="../frame/js/jQuery-v1.9.1.min.js"></script> 
+	      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	      <script src="http://cdn.bootcss.com/.pond.js/1.4.2/.pond.min.js"></script>
+	    <![endif]-->
+	    <!--[if gte IE 9]>
+			<script src="../frame/js/jquery3.1.1.min.js"></script>
+		<![endif]-->
+	    <!--[if !IE]> -->
+			<script src="../frame/js/jquery3.1.1.min.js"></script>
+		<!-- <![endif]-->
+	</head>
+	<body class="page-index  zh">
+		<!--提示弹出框-->
+		<!--<div id="prompt-box">
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+							<h4 class="modal-title">提示</h4>
+						</div>
+						<div class="modal-body">
+							<p class="errInfo"></p>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="modal-confirm" data-dismiss="modal">确定</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>-->
+		<!--遮挡层-->
+		<!--<div class="barrierBed none"></div>-->	
+		<!-- 公用头部 -->
+		<div class="common_header"></div>
+		<!-- 文档中间部分  开始-->
+		<div class="document-mainblock  clearfix">
+			<ul class="catalogue clearfix" id="catalogue">
+				<li class="emptyLi"></li>
+				<li class="firCatalogue">
+					<dl id="sdk">
+						<dt><a  href="sdk_document.html">SDK简介</a></dt>
+						<dd><a  href="sdk_document.html">使用目的</a></dd>
+						<dd><a  href="sdk_document.html">网络结构</a></dd>
+						<dd><a  href="sdk_document.html">使用流程</a></dd>
+					</dl>					
+				</li>
+				<li class="firCatalogue">
+					<dl id="jiekou">
+						<dt><a  href="interfaces.html">接口实现</a></dt>
+						<dd><a  href="interfaces.html">接口列表</a></dd>
+						<dd><a  href="interfaces.html">设置全局参数</a></dd>
+						<dd><a  href="interfaces.html">设置账号信息</a></dd>
+						<dd><a  href="interfaces.html">实例化短信对象</a></dd>
+						<dd><a  href="interfaces.html">单条发送</a></dd>
+						<dd><a  href="interfaces.html">相同内容群发</a></dd>
+						<dd><a  href="interfaces.html">个性化群发</a></dd>
+						<dd><a  href="interfaces.html">获取上行</a></dd>
+						<dd><a  href="interfaces.html">获取状态报告</a></dd>
+						<dd><a  href="interfaces.html">移除账号</a></dd>
+					</dl>					
+				</li>
+				<li class="firCatalogue">
+					<dl id="fulu">
+						<dt><a  href="#guize" class="catalogueCurrent">附录</a></dt>
+						<dd><a  href="#guize">手机号码规则</a></dd>
+					</dl>					
+				</li>
+				<li class="emptyLi"></li>
+			</ul>
+			<div class="rightContent clearfix" id="rightContent"> 
+				<div class="headerCon clearfix">
+					<ul class="nav clearfix">
+						<li class="currentNav">短信</li>
+						<li>语音</li>
+						<li style="display: none;">视频</li>
+						<li style="display: none;">IM</li>
+					</ul>
+					<div class="languageSet">
+					</div>
+				</div>
+				<div class="mainContent" id="mainContent">
+					<div class="mainContentLeft" id="mainContentLeft" style="width:800px;max-width: none;min-width: none;margin-left: 80px;">
+						<div class="conSession" id="mudi" name="mudi">
+							<h2 class="sessionTitle">手机号码规则</h2>
+							<div class="sessionCon">
+								<div class="prograf clearfix">
+									<span class="prografNun">(1)&nbsp;</span>
+									<p class="prografCon">每次请求所提交的号码段类型不受限制，但系统会对每个手机号码做合法性验证，若有不合法的手机号码，以失败状态报告的形式返回。号码段类型分为：移动、联通、电信手机。</p>
+								</div>
+								<div class="prograf clearfix">
+									<span class="prografNun">(2)&nbsp;</span>
+									<p class="prografCon">若只发送国外的号码，那么号码规则必须是：00+国际电话区号+手机号码。</p>
+								</div>
+								<div class="prograf clearfix">
+									<span class="prografNun">(3)&nbsp;</span>
+									<p class="prografCon">若只发送中国的号码，号码前面无需加国际电话区号(0086)。</p>
+								</div>
+								<div class="prograf clearfix">
+									<span class="prografNun">(4)&nbsp;</span>
+									<p class="prografCon">发送的号码当中既有中国也有国外，那么号码规则必须是：00+国家电话区号+手机号码，如：香港号码56455811,中国号码13265661400，那么发送时应该填0085256455811,008613265661400</p>
+								</div>
+							</div>
+						</div>
+						<div class="conSession" id="mudi" name="mudi">
+							<h2 class="sessionTitle">匹配状态报告规则</h2>
+							<div class="sessionCon">
+								<p class="addLine1">单条发送接口</p>
+								<div class="prograf clearfix">
+									<span class="prografNun">(1)&nbsp;</span>
+									<div class="prografCon">
+										<p>custid匹配方法：</p>
+										<p>&nbsp;&nbsp;&nbsp;&nbsp;短短信时使用下行请求包里的custid+mobile进行匹配；</p>
+										<p>&nbsp;&nbsp;&nbsp;&nbsp;长短信时使用下行请求包里的custid+mobile+pknum进行匹配；</p>
+									</div>
+								</div>
+								<div class="prograf clearfix">
+									<span class="prografNun">(2)&nbsp;</span>
+									<div class="prografCon">
+										<p>msgid匹配方法</p>
+										<p>&nbsp;&nbsp;&nbsp;&nbsp;短短信时使用返回包里的msgid进行匹配；</p>
+										<p>&nbsp;&nbsp;&nbsp;&nbsp;长短信时使用下述公式计算手机号对应的长短信分条的流水号：</p>
+										<p>&nbsp;&nbsp;&nbsp;&nbsp;msgid+(当前分条数-1)*17179869184；</p>
+									</div>
+								</div>
+								
+								
+								<p class="addLine1" >相同内容群发接口</p>
+								<div class="prograf clearfix">
+									<span class="prografNun">(1)&nbsp;</span>
+									<div class="prografCon">
+										<p>custid匹配方法：</p>
+										<p>&nbsp;&nbsp;&nbsp;&nbsp;短短信时使用下行请求包里的custid+mobile进行匹配；</p>
+										<p>&nbsp;&nbsp;&nbsp;&nbsp;长短信时使用下行请求包里的custid+mobile+pknum进行匹配；</p>
+									</div>
+								</div>
+								<div class="prograf clearfix">
+									<span class="prografNun">(2)&nbsp;</span>
+									<div class="prografCon">
+										<p>msgid匹配方法</p>
+										<p>&nbsp;&nbsp;&nbsp;&nbsp;短短信时使用返回包里的msgid进行匹配，但每个手机号码对应的msgid需要按下面公式进行计算：msgid+手机号码位置-1；</p>
+										<p>&nbsp;&nbsp;&nbsp;&nbsp;长短信时使用下述公式计算每个手机号对应的长短信分条的流水号：</p>
+										<p>&nbsp;&nbsp;&nbsp;&nbsp;(msgid+(手机号位置-1))+(当前分条数-1)*17179869184；</p>
+									</div>
+								</div>
+								
+								
+								<p class="addLine1">个性化群发接口</p>
+								<div class="prograf clearfix">
+									<span class="prografNun">(1)&nbsp;</span>
+									<div class="prografCon">
+										<p>custid匹配方法：</p>
+										<p>&nbsp;&nbsp;&nbsp;&nbsp;短短信时使用下行请求包里的custid+mobile进行匹配；</p>
+										<p>&nbsp;&nbsp;&nbsp;&nbsp;长短信时使用下行请求包里的custid+mobile+pknum进行匹配；</p>
+									</div>
+								</div>
+								<div class="prograf clearfix">
+									<span class="prografNun">(2)&nbsp;</span>
+									<div class="prografCon">
+										<p>msgid匹配方法</p>
+										<p>&nbsp;&nbsp;&nbsp;&nbsp;短短信时使用返回包里的msgid进行匹配，但每个手机号码对应的msgid需要按下面公式进行计算：msgid+手机号码位置-1;</p>
+										<p>&nbsp;&nbsp;&nbsp;&nbsp;长短信时使用下述公式计算每个手机号对应的长短信分条的流水号：</p>
+										<p>&nbsp;&nbsp;&nbsp;&nbsp;(msgid+(手机号位置-1))+(当前分条数-1)*17179869184；</p>
+									</div>
+								</div>
+								
+							</div>
+						</div>
+						
+						<div class="conSession" id="mudi" name="mudi">
+							<h2 class="sessionTitle">错误代码</h2>
+							<div class="errorList clearfix">
+								<span class="errorNom">-100001</span>
+								<p class="errorCon">鉴权不通过,请检查账号,密码,时间戳,固定串,以及MD5算法是否按照文档要求进行设置</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-100002</span>
+								<p class="errorCon">用户多次鉴权不通过,请检查帐号,密码,时间戳,固定串,以及MD5算法是否按照文档要求进行设置</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-100003</span>
+								<p class="errorCon">用户欠费</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-100004</span>
+								<p class="errorCon">custid或者exdata字段填写不合法</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-100011</span>
+								<p class="errorCon">短信内容超长</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-100012</span>
+								<p class="errorCon">手机号码不合法</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-100014</span>
+								<p class="errorCon">手机号码超过最大支持数量（1000）</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-100029</span>
+								<p class="errorCon">端口绑定失败</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-100056</span>
+								<p class="errorCon">用户账号登录的连接数超限</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-100057</span>
+								<p class="errorCon">用户账号登录的IP错误</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-100999</span>
+								<p class="errorCon">平台数据库内部错误</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-300001</span>
+								<p class="errorCon">账号格式不合法</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-300002</span>
+								<p class="errorCon">密码格式不合法</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-300003</span>
+								<p class="errorCon">IP和端口信息不合法</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-300004</span>
+								<p class="errorCon">IP不合法</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-300005</span>
+								<p class="errorCon">端口不合法</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-300006</span>
+								<p class="errorCon">手机号码格式不合法</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-300007</span>
+								<p class="errorCon">短信内容长度不合法</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-300008</span>
+								<p class="errorCon">扩展子号不合法</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-300009</span>
+								<p class="errorCon">流水号不合法</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-300010</span>
+								<p class="errorCon">密码加密失败</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-300011</span>
+								<p class="errorCon">业务类型不合法</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-300012</span>
+								<p class="errorCon">exdata不合法</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-300013</span>
+								<p class="errorCon">发送优先级不合法</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-300014</span>
+								<p class="errorCon">个性化群发发送条数不在0到100之间</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-300015</span>
+								<p class="errorCon">Message对象为空</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-300016</span>
+								<p class="errorCon">msgid参数为空或者msgid长度不为0</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-300017</span>
+								<p class="errorCon">鉴账号或者密码错误</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-300018</span>
+								<p class="errorCon">发送类型错误</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-300019</span>
+								<p class="errorCon">上行mos为空或者mos集合大于0</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-300020</span>
+								<p class="errorCon">状态报告rpts为空或者rpts集合大于0</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-300021</span>
+								<p class="errorCon">请求路径为空</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-300023</span>
+								<p class="errorCon">是否需要日志设置不合法</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-310001</span>
+								<p class="errorCon">单条发送失败</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-310002</span>
+								<p class="errorCon">相同内容发送失败</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-310003</span>
+								<p class="errorCon">个性发送失败</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-310004</span>
+								<p class="errorCon">获取上行失败</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-310005</span>
+								<p class="errorCon">获取状态报告失败</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-310006</span>
+								<p class="errorCon">鉴获取余额失败</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-310007</span>
+								<p class="errorCon">鉴设置账号信息失败</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-310008</span>
+								<p class="errorCon">账号不存在或者账号不可用</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-310009</span>
+								<p class="errorCon">无可用的账号</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-310010</span>
+								<p class="errorCon">鉴设置账号检查线程启动失败</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-310011</span>
+								<p class="errorCon">设置账号检查线程停止失败</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-310012</span>
+								<p class="errorCon">设置全局参数失败</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-310013</span>
+								<p class="errorCon">移除账号失败</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-310014</span>
+								<p class="errorCon">该账号在账号列表不存在，无需移除</p>
+							</div>
+							<div class="errorList clearfix">
+								<span class="errorNom">-310099</span>
+								<p class="errorCon">http请求失败</p>
+							</div>
+						</div>
+						
+					</div>
+					<!--<div class="scrollBar" id="scrollBar">
+						<div class="trangle"></div>
+						<img id="scrollMark" src="images/scrollMark.png" alt="" />
+					</div>
+					<div class="mainContentRight" id="mainContentRight">
+						
+					</div>-->
+				</div>
+			</div>
+		</div> 
+		<!-- 文档中间部分  结束结束-->
+		<!--公共底部-->
+		<div class="common_footer"></div>
+	</body>
+    <script src="../config/configuration.js"></script>
+	<script src="../frame/js/loadCommon.js"></script>
+	<script src="./js/nav.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/sdk_document.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('#catalogue li a').each(function(){
+				$(this).click(function(){
+					$('#catalogue li a').removeClass('catalogueCurrent');
+					$(this).addClass('catalogueCurrent');
+					setTimeout(function(){
+						$(document).scrollTop($(document).scrollTop() - $('#site-header').height());
+					},10);
+					
+				});
+			});
+		});
+	</script>
+</html>

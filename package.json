@@ -1,0 +1,29 @@
+{
+  "name": "test-grunt",
+  "version": "1.0.0",
+  "description": "this is my test grunt",
+  "main": "index.js",
+  "dependencies": {
+    "grunt": "^1.0.1"
+  },
+  "devDependencies": {
+    "connect-livereload": "^0.6.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-csslint": "^2.0.0",
+    "grunt-contrib-cssmin": "^2.2.0",
+    "grunt-contrib-htmlmin": "^2.4.0",
+    "grunt-contrib-imagemin": "^1.0.1",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-uglify": "^3.0.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-newer": "^1.3.0",
+    "serve-index": "^1.9.0",
+    "serve-static": "^1.12.3"
+  },
+  "scripts": {
+    "test": "grunt"
+  },
+  "author": "kangweijie",
+  "license": "ISC"
+}

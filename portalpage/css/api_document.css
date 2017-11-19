@@ -1,0 +1,100 @@
+.clearfix:before,.clearfix:after{ content:"";display:table; } 
+.clearfix:after{clear:both;} 
+.clearfix{ *zoom:1;/*IE/7/6*/}
+
+.document-mainblock{position: relative;width:1200px!important;}
+.document-mainblock .catalogue{width:188px;background-color: #f3f4f6;border-bottom:1px solid #e5e7ea;border-top: none;float:left;}
+.document-mainblock .catalogue li{border-left:1px solid #e5e7ea;border-right:1px solid #e5e7ea;}
+
+.downloadList{width:98%;margin:0 auto;vertical-align: middle;font-size: 16px;line-height: 32px;}
+.downloadList th,.downloadList td{text-align: center!important;}
+.downloadList a{text-decoration: underline!important;color:#0387f9!important;}
+.document-mainblock .catalogue .firCatalogue a{border-bottom: 1px solid transparent;}
+.document-mainblock .catalogue .firCatalogue dt{color:#858585!important;padding-left: 22px;line-height: 26px;font-weight: 500;}
+.document-mainblock .catalogue .firCatalogue dd a{color:#444!important;padding-left: 44px!important;line-height: 45px;}
+.document-mainblock .catalogue .firCatalogue a{display:block;width:143px;font-size: 14px;cursor: pointer;text-decoration: none;box-sizing: content-box;}
+.document-mainblock .catalogue .firCatalogue a:hover{background-color:#ddd;}
+.catalogueCurrent{background-color:#fff;border-bottom: 1px solid #1fa3f8!important;}
+.emptyLi{width:100;height:40px;border-left:1px solid #e5e7ea;border-right:1px solid #e5e7ea;}
+
+
+.rightContent{width:1012px;overflow: hidden;margin-left: 188px;}
+.rightContent .headerCon{height:62px;border-bottom: 1px solid #e5e7ea;}
+.rightContent .headerCon .nav{float:left;}
+.rightContent .headerCon .nav li{float:left;font-size: 14px;color:#444;border-bottom:2px solid #fff;width:40px;text-align: center;margin:38px 47px 0 47px;cursor: pointer;}
+.rightContent .headerCon .nav li:hover{border-bottom: 3px solid #1fa3f8;color:#1fa3f8;}
+.rightContent .headerCon .nav .currentNav{border-bottom: 3px solid #1fa3f8;color:#1fa3f8;}
+.rightContent .mainContent{padding-left: 48px;}
+.rightContent .sessionTitle{font-size: 23px;color: #666;line-height: 2em;margin:44px 0 10px 0;padding-bottom: 8px;border-bottom: 1px solid #e5e7ea;}
+.rightContent .sessionCon{font-size: 16px;color: #444;line-height: 22px;margin:12px 0;text-indent: 2em;}
+.rightContent .sesionImg{margin: 1em 0;display: block;margin: 0 auto;}
+
+.mainContentLeft{width:664px;float: left;min-width: 484px;max-width: 664px;overflow: auto;}
+.mainContentRight{width: 300px;min-width:300px;max-width:480px;float: left;background-color:#2b303b;color: #9f9fa0;overflow: hidden;overflow: auto;}
+.mainContentRight .demoList{width:100%;position: relative;}
+.mainContentRight .demoList .demoSession .demoCon{padding:18px;background-color: #1f2127;border-radius: 5px;margin:0 18px 18px 18px;position: relative;word-wrap: break-word;color:##bcbcbd;}
+.mainContentRight .demoList .demoSession .demoTitle{font-size: 20px;line-height: 46px;margin-bottom: 8px;background-color: #1F2127;padding-left: 1.2em;color:#d6d6d7;}
+.rightContent .scrollBar{width:12px;background-color: transparent;cursor:w-resize;position: absolute;height:100%;z-index: 100;}
+/*.rightContent .trangle{width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-bottom:4px solid #000;margin:4px 2px 2px 2px;}*/
+.rightContent .scrollBar img{position:fixed;cursor: pointer;margin-left:-12px;
+transform: rotate(180deg);
+-ms-transform: rotate(180deg);		/* IE 9 */
+-webkit-transform: rotate(180deg);	/* Safari and Chrome */
+-o-transform: rotate(180deg);		/* Opera */
+-moz-transform: rotate(180deg);
+}
+
+.trunaround{
+transform: rotate(360deg)!important;
+-ms-transform: rotate(360deg)!important;		/* IE 9 */
+-webkit-transform: rotate(360deg)!important;	/* Safari and Chrome */
+-o-transform: rotate(360deg)!important;		/* Opera */
+-moz-transform: rotate(360deg)!important;
+}
+
+.bigger{width:650px!important;margin-left: -500px}
+.margin-left{margin-left: -500px;}
+
+
+.mainContentLeft .interfaces{text-align: center;vertical-align: middle;}
+.mainContentLeft .interfaces td{padding:10px;}
+.mainContentLeft .interfaces .firRow,.mainContentLeft .interfaces .secRow,.mainContentLeft .interfaces .thiRow{width: 30%;}
+.mainContentLeft .interfaces .tableHeader{background-color: #f3f4f6!important;}
+.mainContentLeft .interfaces tr:nth-child(2n){background-color: #fff;}
+.mainContentLeft .interfaces tr:nth-child(2n+1){background-color: #f6f6f6;}
+
+
+.interfaceExplain{background-color: #f3f4f6;color:#89898a;line-height: 3em;padding: 1em 1em 1em;border-radius: 5px;margin-bottom: 12px;}
+.interfaceExpTitle{font-size: 16px!important;}
+.interfaceExplain .explainCon{text-indent: 2em;font-size: 14px!important;}
+.interfacesOther .otherTitle{font-size: 21px;color:#666;line-height: 3em;border-bottom: 1px solid #c8c8c8;}
+.interfacesOther .otherTitleEng{color: #b3b3b3;}
+.interfacesOther .otherCon{font-size: 14px;color:#333;line-height: 2em;border-bottom: 1px solid #e2e2e2;    padding: 12px 0 12px 25px;}
+.interfacesOther .otherLeft{color:#333;float: left;width: 100px;font-weight: bold;}
+.interfacesOther .otherLeft .canshu{color: #333;font-weight: bold; font-size: 15px;line-height: 10px;margin: 6px 0;font-family: "微软雅黑";}
+.interfacesOther .otherRight{float: left;width: 80%;}
+.interfacesOther .otherLeft .leixing{color: #b2b2b2;font-weight: bold;line-height:22px;}
+
+.otherCon .otherConline{color: #333; font-size: 14px;font-family: "微软雅黑";}
+
+.mainContentLeft .conSession .sessionCon .prograf{text-indent: 0;}
+.mainContentLeft .conSession .sessionCon .prograf .prografNun{float:left;width:5%;text-align: right;display: block;}
+.mainContentLeft .conSession .sessionCon .prograf .addLine1Title{line-height: 26px;color: #858585;font-weight: 100; font-size: 14px;font-family: "微软雅黑";}
+.mainContentLeft .conSession .sessionCon .prograf .prografCon{margin-left: 22px;line-height: 26px;color: #444444;font-family: "微软雅黑";}
+.mainContentLeft .conSession .sessionCon .addLine1{text-indent:0;color: #423d3d;padding-bottom: 10px;padding-top: 20px; font-size: 18px;font-family: "微软雅黑";}
+
+.errorList{border-bottom:1px solid #d8d8d8;padding:15px 0;line-height: 26px;font-size: 16px;color:#858585;}
+.errorList .errorNom{float: left;width:150px;text-align: center;}
+.errorList .errorCon{margin-left: 150px;}
+
+
+
+
+
+
+
+
+
+
+
+

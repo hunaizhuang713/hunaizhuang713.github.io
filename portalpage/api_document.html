@@ -1,0 +1,4320 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>开发者中心 API文档</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="../frame/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="../frame/css/home.css" />
+		<link rel="stylesheet" href="./css/document.css" />
+		<link rel="stylesheet" href="./css/sdk_document.css" />
+		<link rel="shortcut icon" href="../common/img/favicon.ico">
+		 <!--[if lt IE 9]>
+	      <script src="../frame/js/jQuery-v1.9.1.min.js"></script> 
+	      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	      <script src="http://cdn.bootcss.com/.pond.js/1.4.2/.pond.min.js"></script>
+	    <![endif]-->
+	    <!--[if gte IE 9]>
+			<script src="../frame/js/jquery3.1.1.min.js"></script>
+		<![endif]-->
+	    <!--[if !IE]> -->
+			<script src="../frame/js/jquery3.1.1.min.js"></script>
+		<!-- <![endif]-->
+	</head>
+	<body class="js-mark4 page-index  zh" style="position:relative">
+		<!--提示弹出框-->
+		<div id="prompt-box">
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+							<h4 class="modal-title">提示</h4>
+						</div>
+						<div class="modal-body">
+							<p class="errInfo"></p>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="modal-confirm" data-dismiss="modal">确定</button>
+						</div>
+					</div>
+					<!-- /.modal-content -->
+				</div>
+				<!-- /.modal-dialog -->
+			</div>
+		</div>
+		<!--遮挡层-->
+		<div class="barrierBed none"></div>
+		<!-- 公用头部 -->
+		<div class="common_header"></div>
+		
+		<!-- 文档中间部分  开始-->
+		 <div class="document-mainblock" style="overflow: hidden;width: 1200px;margin-bottom: 0;">
+			<!--Nav tabs
+			<ul class="nav nav-tabs" role="tablist">
+			  <li role="presentation" class="active"><a  href="#home" role="tab" data-toggle="tab">短信</a></li>
+			  <li role="presentation"><a  href="#profile" role="tab" data-toggle="tab">语音</a></li>
+			  <li role="presentation"><a  href="#messages" role="tab" data-toggle="tab">IM</a></li>
+			  <li role="presentation"><a  href="#settings" role="tab" data-toggle="tab">Settings</a></li>
+			</ul>
+			
+			Tab panes
+			<div class="tab-content">
+			  <div role="tabpanel" class="tab-pane active" id="home">...</div>
+			  <div role="tabpanel" class="tab-pane" id="profile">...</div>
+			  <div role="tabpanel" class="tab-pane" id="messages">...</div>
+			  <div role="tabpanel" class="tab-pane" id="settings">...</div>
+			</div>-->
+			<div class="main-left">
+				<!--<div style="height: 11px;"></div>-->
+				<div class="sms">
+					<dl class="sms-ru">
+						<dt class="jieru">API接入</dt>
+						<dd class="dianji jierushuoming"><a  href="#zhinan">接使用目的</a></dd>
+						<dd class="dianji shiyongmudi"><a  href="#zhinan">网络结构</a></dd>
+						<dd class="dianji wangljg"><a  href="#zhinan">接入指南</a></dd>
+					</dl>
+					<dl class="sms-kou">
+						<dt class="jiekou">接口说明</dt>
+						<dd><a  href="#imsApi">短信API接口简介</a></dd>
+						<dd><a  href="#single">单条发送接口</a></dd>
+						<dd><a  href="#same">相同内容群发接口</a></dd>
+						<dd><a  href="#spacial">个性化群发接口</a></dd>
+						<dd><a  href="#upApi">获取上行接口</a></dd>
+						<dd><a  href="#status">获取状态报告接口</a></dd>
+						<!--<dd><a  href="#check">查询余额</a></dd>-->
+						<!--<dd><a name="send">推送上行</a></dd>
+						<dd><a name="sendStatus">推送状态报告</a></dd>-->
+					</dl>
+					<dl class="sms-fu">
+						<dt class="fulu">附录</dt>
+						<dd><a  href="#jianquan">鉴权规则</a></dd>
+						<dd><a  href="#phone">手机号码规则</a></dd>
+						<dd><a  href="#pipei">匹配状态报告规则</a></dd>
+						<dd><a  href="#error">错误代码</a></dd>
+						<dd><a  href="#notice">注意事项</a></dd>
+					</dl>
+				</div>
+				<div class="voice none">
+					<dl class="voc-ru">
+						<dt class="voice-jieru">接入说明</dt>
+						<dd class="dianji"><a  href="#voice-zhinan">接入指南</a></dd>
+					</dl>
+					<dl class="voc-kou">
+						<dt class="voice-jie">接口说明</dt>
+						<dd><a  href="#voice-imsApi">语音API接口简介</a></dd>
+						<dd><a  href="#voice-single">语音验证码接口</a></dd>
+						<dd><a  href="#voice-same">获取状态报告接口</a></dd>
+						<!--<dd><a  href="#voice-check">查询余额</a></dd>-->
+					</dl>
+					<dl class="voc-fu">
+						<dt class="voice-fu">附录</dt>
+						<dd><a  href="#error">错误代码</a></dd>
+					</dl>
+				</div>
+					
+			</div>
+			<div class="main-right" style="width: 1010px;overflow: hidden;">
+				<div class="header-top">
+					<ul class="nav-con">
+						<li class="duanx choice">短信</li>
+						<li class="yuyin">语音</li>
+					</ul>
+				</div>
+				<div class="left" style="overflow-x: hidden;overflow-y: auto;width: 1032px;">
+				<div class="sms-model" style="margin-right: 20px;">
+					<div class="main-cont start">
+						<p>1.接入梦网云通讯平台短信业务有两种方式</p>
+						<p style="text-indent: 2em;">(1)通过短信API接口自主开发进行接入，可使用多种语言进行开发，适用于任何语言的开发者，同时开发者可自行进行规划并实现自己的逻辑处理。下方处即可下载完整的短信API 接入开发DEMO示例。</p>
+						<div class="download" style="margin-bottom: 2em;">							
+								<table class="downloadList" border="1px solid #eee" cellspacing="0" cellpadding="0">
+									<tr>
+										<th style="width:25%;">语音</th>
+										<th style="width:45%;">说明</th>
+										<th style="width:30%;">操作</th>
+									</tr>
+									<tr>
+										<td>JAVA</td>
+										<td>短信API Demo示例</td>
+										<td>
+											<img class="fileMark" style="margin-top:-6px;width: 16px" src="images/fileMark.png" alt="下载" />
+											<a  href="../file/download/montnets-sms-api-java-5.1.1.zip">下载</a>
+										</td>
+									</tr>
+								</table>								
+						</div>
+						<p style="text-indent: 2em;">(2)通过短信<a  href="../file/download/montnets-sms-sdk-java-5.1.2.zip">SDK开发包</a>进行开发接入，开发者仅需要写入短短几行代码即可实现 接入，减少用户开发成本，快速完成功能开发。</p>
+					<h1 style="font-size:24px;color:#555;">接入指南</h1>
+					<p>
+						2.进入梦网云通讯平台首页，注册梦网云通讯平台账号并登陆到管理控制台，点击“创建发送帐号”进行发送账号的创建
+					</p>
+					<img src="images/console.png" alt="梦网云控制台首页"/>
+					<p>
+						3.未认证之前，梦网云通讯平台提供一个测试账号供开发人员进行测试接入，列表中”发送账号”及”密码”的内容就是我们API接口的请求账号及密码，测试号码中可设置指定发送的手机号码，点击”启用”之后该账号即可使用。
+					</p>
+					<p class="hui">
+						(备注：在对接口进行开发测试时只能对”可发送手机号”中填写的手机号码进行短信发送，如填写了除此之外的手机号码则无法进行发送)。
+					</p>
+					<img src="images/u463.png" alt="发送账号列表"/>
+					<p>
+						4.点击顶部菜单”账号管理”选择”账号信息”页面，该页”Rest URL”里的内容就是我们调用API接口的请求地址。
+					</p>
+					<img src="images/zhanghao.png" alt="账号信息管理"/>
+					<!--<p>
+						5.左侧导航栏点击“接口简介”，在”API 接口介绍”下点击”点击此处进行下载”下载完整的API 接入开发DEMO示例及SDK开发包，用户可使用我们提供的SDK开发包，即可快速完成平台接入使用我们所提供的功能服务，也可以参考API DEMO示例根据自己的功能需求进行自主开发完成平台接入。
+					</p>
+					<img src="images/jie.png"/>-->
+					<div style="margin-bottom:50px"></div>
+				</div>
+					<div class="jiekou-cont center none">
+					<h1 id="imsApi">短信API接口简介</h1>
+					<hr />
+					<p>
+						本API采用了REST风格设计和实现，简洁易懂，支持JSON、XML两种数据传递方式，用户可以根据实际的开发需求选择合适的数据传递方式。另外为了方便用户进行对接，我们提供了将API封装好的SDK开发包，针对通过SDK开发包接入的用户，能方便其快速使用平台提供的功能。
+					</p>
+					<!--<table border="1" class="table">
+						<tr>
+							<td>平台和语言</td>
+							<td>说明</td>
+							<td>操作</td>
+						</tr>
+						<tr>
+							<td>JAVA</td>
+							<td>短信API Demo示例</td>
+							<td>
+								<img src=""/>
+								<a  href="../file/download/montnets-sms-api-java-5.1.1.zip">下载</a>
+							</td>
+						</tr>
+					</table>-->
+					<hr/>
+					<h1 id="single">单条发送接口</h1>
+					<div class="kuang">
+						<h2>请求地址(URL)</h2>
+						<p class="zi">
+							<span class="post">POST</span><span class="url">http://ip:port/sms/v2/std/single_send</span>
+						</p>
+					</div>
+					<hr />
+					<h3 class="can">请求参数</h3>
+					<hr />
+					<dl>
+						<dt>
+							<p>userid</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>用户账号：长度最大6字符，统一大写</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>pwd</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>用户密码(密文)：定长小写32位字符。密码规则详见下文 <a class="jian" href="#jianquan">鉴权规则</a></dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>mobile</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>短信接收的手机号：只能填一个手机号。号码规则详见 <a class="iphone" href="#phone">手机号码规则</a></dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>content</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>短信内容：最大支持350个字，一个字母或一个汉字都视为一个字，编码方法：urlencode（GBK明文）</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>timestamp</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>时间戳：24小时制格式：MMDDHHMMSS,即月日时分秒，定长10位,月、日、时、分、秒每段不足2位时左补0，密码选择MD5加密方式时必填该参数，密码选择明文方式时则不用填写</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>svrtype</p>
+							<p class="other">string</p>
+							<p class="other">非必须</p>
+						</dt>
+						<dd>业务类型：最大可支持10个长度的ASCII字符串：字母，数字</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>exno</p>
+							<p class="other">string</p>
+							<p class="other">非必须</p>
+						</dt>
+						<dd>扩展号：长度不能超过6位，注意通道号+扩展号的总长度不能超过20位，若超出exno无效，如不需要扩展号则不用提交此字段或填空</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>custid</p>
+							<p class="other">string</p>
+							<p class="other">非必须</p>
+						</dt>
+						<dd>扩展号：长度不能超过6位，注意通道号+扩展号的总长度不能超过20位，若超出exno无效，如不需要扩展号则不用提交此字段或填空</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>exdata</p>
+							<p class="other">string</p>
+							<p class="other">非必须</p>
+						</dt>
+						<dd>业务类型：最大可支持10个长度的ASCII字符串：字母，数字</dd>
+					</dl>
+					<hr />
+					<h2 class="can">返回参数</h2>
+					<hr />
+					<dl>
+						<dt>
+							<p>result</p>
+							<p class="other">int</p>
+						</dt>
+						<dd>单条短信发送请求处理结果：0：成功，非0：失败，详见 <a class="cuo" href="#error">错误代码</a></dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>msgid</p>
+							<p class="other">long(64bit)</p>
+						</dt>
+						<dd>平台流水编号：非0,64位整型，对应Java和C#的long，不可用int解析。result非0时，msgid为0</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>custid</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>用户自定义流水编号：默认与请求报文中的custid保持一致，若请求报文中没有custid参数或值为空，返回一个与msgid相同的值,result非0时，custid为空</dd>
+					</dl>
+					<hr />
+					<div class="shili sl1">
+						<div class="qingqiu">
+							<h2>请求实例</h2>
+							<span>
+								<a class="JSON">JSON</a>
+								<a class="XML">XML</a>
+							</span>
+						</div>
+						<div class="json-cont">
+							<h3>JSON</h3>
+							<div class="sastyle">
+								{"userid":"J10003","pwd":"26dad7f364507df18f3841cc9c4ff94d","mobile":"13800138000","content":"%b2%e2%ca%d4%b6%cc%d0%c5","timestamp":"0803192020","svrtype":" SMS001","exno":"0006","custid":"b3d0a2783d31b21b8573","exdata":"exdata000002"}
+							</div>
+							<p class="succ">发送成功</p>
+							<h3>JSON</h3>
+							<div class="sastyle">
+								{
+								"result":0,
+								"msgid":9223372036854775808,
+								"custid":"b3d0a2783d31b21b8573"
+								}
+							</div>
+							<p class="succ">发送失败</p>
+							<h3>JSON</h3>
+							<div class="sastyle">
+								{
+								"result":-100999,
+								"msgid":0,
+								"custid":""
+								}
+							</div>
+						</div>
+					</div>
+					<hr />
+					<h1 id="same">相同内容群发接口</h1>
+					<div class="kuang">
+						<h2>请求地址(URL)</h2>
+						<p class="zi">
+							<span class="post">POST</span><span class="url">http://ip:port/sms/v2/std/batch_send</span>
+						</p>
+					</div>
+					<hr />
+					<h3 class="can">请求参数</h3>
+					<hr />
+					<dl>
+						<dt>
+							<p>userid</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>用户账号：长度最大6字符，统一大写</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>pwd</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>用户密码(密文)：定长小写32位字符。密码规则详见下文 <a class="jian" href="#jianquan">鉴权规则</a></dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>mobile</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>多个手机号请用英文逗号分隔，最大1000个号码。号码规则详见下文 <a class="iphone" href="#phone">手机号码规则</a></dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>content</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>短信内容：最大支持350个字，一个字母或一个汉字都视为一个字，编码方法：urlencode（GBK明文）</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>timestamp</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>时间戳：24小时制格式：MMDDHHMMSS,即月日时分秒，定长10位,月、日、时、分、秒每段不足2位时左补0，密码选择MD5加密方式时必填该参数，密码选择明文方式时则不用填写</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>svrtype</p>
+							<p class="other">string</p>
+							<p class="other">非必须</p>
+						</dt>
+						<dd>业务类型：最大可支持10个长度的ASCII字符串：字母，数字</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>exno</p>
+							<p class="other">string</p>
+							<p class="other">非必须</p>
+						</dt>
+						<dd>扩展号：长度不能超过6位，注意通道号+扩展号的总长度不能超过20位，若超出exno无效，如不需要扩展号则不用提交此字段或填空</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>custid</p>
+							<p class="other">string</p>
+							<p class="other">非必须</p>
+						</dt>
+						<dd>用户自定义流水编号：该条短信在您业务系统内的ID，比如订单号或者短信发送记录的流水号。填写后发送状态返回值内将包含这个ID。最大可支持64位的ASCII字符串：字母、数字、下划线、减号，如不需要则不用提交此字段或填空</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>exdata</p>
+							<p class="other">string</p>
+							<p class="other">非必须</p>
+						</dt>
+						<dd>业务类型：最大可支持10个长度的ASCII字符串：字母，数字</dd>
+					</dl>
+					<hr />
+					<h2 class="can">返回参数</h2>
+					<hr />
+					<dl>
+						<dt>
+							<p>result</p>
+							<p class="other">int</p>
+						</dt>
+						<dd>单条短信发送请求处理结果：0：成功，非0：失败，详见下文 <a class="cuo" href="#error">错误代码</a></dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>msgid</p>
+							<p class="other">long(64bit)</p>
+						</dt>
+						<dd>平台流水编号：非0,64位整型，对应Java和C#的long，不可用int解析。result非0时，msgid为0</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>custid</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>用户自定义流水编号：默认与请求报文中的custid保持一致，若请求报文中没有custid参数或值为空，返回一个与msgid相同的值,result非0时，custid为空</dd>
+					</dl>
+					<hr />
+					<div class="shili sl2">
+						<div class="qingqiu">
+							<h2>请求实例</h2>
+							<span>
+								<a class="JSON">JSON</a>
+								<a class="XML">XML</a>
+							</span>
+						</div>
+						<div class="json-cont">
+							<h3>JSON</h3>
+							<div class="sastyle">
+								{"userid":"J10003","pwd":"26dad7f364507df18f3841cc9c4ff94d","mobile":"13800138000,13000130000,18000180000","content":"%b2%e2%ca%d4%b6%cc%d0%c5","timestamp":"0803192020","svrtype":"SMS001","exno":"0006","custid":"b3d0a2783d31b21b8573","exdata":"exdata000002"}
+							</div>
+							<p class="succ">发送成功</p>
+							<h3>JSON</h3>
+							<div class="sastyle">
+								{
+								"result":0,
+								"msgid":9223372036854775808,
+								"custid":"b3d0a2783d31b21b8573"
+								}
+							</div>
+							<p class="succ">发送失败</p>
+							<h3>JSON</h3>
+							<div class="sastyle">
+								{
+								"result":-100999,
+								"msgid":0,
+								"custid":""
+								}
+							</div>
+						</div>
+					</div>
+					<hr />
+					<h1 id="spacial">个性化群发接口</h1>
+					<div class="kuang">
+						<h2>请求地址(URL)</h2>
+						<p class="zi">
+							<span class="post">POST</span><span class="url">http://ip:port/sms/v2/std/single_send</span>
+						</p>
+					</div>
+					<hr />
+					<h3 class="can">请求参数</h3>
+					<hr />
+					<dl>
+						<dt>
+							<p>userid</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>用户账号：长度最大6字符，统一大写</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>pwd</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>用户密码(密文)：定长小写32位字符。密码规则详见下文 鉴权规则<a class="jian" href="#jianquan">鉴权规则</a></dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>timestamp</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>时间戳：24小时制格式：MMDDHHMMSS,即月日时分秒，定长10位,月、日、时、分、秒每段不足2位时左补0，密码选择MD5加密方式时必填该参数，密码选择明文方式时则不用填写</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>multimt</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>个性化信息详情：multimt中最多可支持100个手机号的个性化信息，详见下一条  <a href="#">multimt个性化信息结构体参数</a></dd>
+					</dl>
+					<hr />
+					<h2 class="can">multimt个性化信息结构体参数</h2>
+					<hr />
+					<dl>
+						<dt>
+							<p>mobile</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>单个手机号。号码规则详见 <a class="iphone" href="#phone">手机号码规则</a></dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>content</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>短信内容：最大支持350个字，一个字母或一个汉字都视为一个字，编码方法：urlencode（GBK明文）</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>svrtype</p>
+							<p class="other">string</p>
+							<p class="other">非必须</p>
+						</dt>
+						<dd>业务类型：最大可支持10个长度的ASCII字符串：字母，数字</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>exno</p>
+							<p class="other">string</p>
+							<p class="other">非必须</p>
+						</dt>
+						<dd>扩展号：长度不能超过6位，注意通道号+扩展号的总长度不能超过20位，若超出exno无效，如不需要扩展号则不用提交此字段或填空</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>custid</p>
+							<p class="other">string</p>
+							<p class="other">非必须</p>
+						</dt>
+						<dd>用户自定义流水编号：该条短信在您业务系统内的ID，比如订单号或者短信发送记录的流水号。填写后发送状态返回值内将包含这个ID。最大可支持64位的ASCII字符串：字母、数字、下划线、减号，如不需要则不用提交此字段或填空</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>exdata</p>
+							<p class="other">string</p>
+							<p class="other">非必须</p>
+						</dt>
+						<dd>业务类型：最大可支持10个长度的ASCII字符串：字母，数字</dd>
+					</dl>
+					<hr />
+					<h2 class="can">返回参数</h2>
+					<hr />
+					<dl>
+						<dt>
+							<p>result</p>
+							<p class="other">int</p>
+						</dt>
+						<dd>单条短信发送请求处理结果：0：成功，非0：失败，详见下文 <a class="cuo" href="#error">错误代码</a></dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>msgid</p>
+							<p class="other">long(64bit)</p>
+						</dt>
+						<dd>平台流水编号：非0,64位整型，对应Java和C#的long，不可用int解析。result非0时，msgid为0</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>custid</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>用户自定义流水编号：默认与请求报文中的custid保持一致，若请求报文中没有custid参数或值为空，返回一个与msgid相同的值,result非0时，custid为空</dd>
+					</dl>
+					<hr />
+					<hr />
+					<div class="shili sl3">
+						<div class="qingqiu">
+							<h2>请求实例</h2>
+							<span>
+								<a class="JSON">JSON</a>
+								<a class="XML">XML</a>
+							</span>
+						</div>
+						<div class="json-cont">
+							<h3>JSON</h3>
+							<div class="sastyle">
+								{"userid":"J10003","pwd":"26dad7f364507df18f3841cc9c4ff94d","mobile":"13800138000","content":"%b2%e2%ca%d4%b6%cc%d0%c5","timestamp":"0803192020","svrtype":" SMS001","exno":"0006","custid":"b3d0a2783d31b21b8573","exdata":"exdata000002"}
+							</div>
+							<p class="succ">发送成功</p>
+							<h3>JSON</h3>
+							<div class="sastyle">
+								{"userid":"J10003","pwd":"26dad7f364507df18f3841cc9c4ff94d","mobile":"13800138000","content":"%b2%e2%ca%d4%b6%cc%d0%c5","timestamp":"0803192020","svrtype":" SMS001","exno":"0006","custid":"b3d0a2783d31b21b8573","exdata":"exdata000002"}
+							</div>
+							<p class="succ">发送失败</p>
+							<h3>JSON</h3>
+							<div class="sastyle">
+								{
+								"result":-100999,
+								"msgid":0,
+								"custid":""
+								}
+							</div>
+						</div>
+					</div>
+					<hr />
+					<h1 id="upApi">获取上行接口</h1>
+					<div class="kuang">
+						<h2>请求地址(URL)</h2>
+						<p class="zi">
+							<span class="post">POST</span><span class="url">http://ip:port/sms/v2/std/get_mo</span>
+						</p>
+					</div>
+					<hr />
+					<h3 class="can">请求参数</h3>
+					<hr />
+					<dl>
+						<dt>
+							<p>userid</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>用户账号：长度最大6字符，统一大写</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>pwd</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>用户密码(密文)：定长小写32位字符。密码规则详见下文 <a class="jian" href="#jianquan">鉴权规则</a></dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>timestamp</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>时间戳：24小时制格式：MMDDHHMMSS,即月日时分秒，定长10位,月、日、时、分、秒每段不足2位时左补0，密码选择MD5加密方式时必填该参数，密码选择明文方式时则不用填写</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>retsize</p>
+							<p class="other">string</p>
+							<p class="other">非必须</p>
+						</dt>
+						<dd>每次请求想要获取的上行最大条数。最大200,超过200按200返回。小于等于0或不填时，系统返回默认条数，默认100条</dd>
+					</dl>
+					<hr />
+					<h2 class="can">返回参数</h2>
+					<hr />
+					<dl>
+						<dt>
+							<p>result</p>
+							<p class="other">int</p>
+						</dt>
+						<dd>单条短信发送请求处理结果：0：成功，非0：失败，详见下文 <a class="cuo" href="#error">错误代码</a></dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>mos</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>result非0时mos为空</dd>
+					</dl>
+					<hr />
+					<h2 class="can">mos包结构体</h2>
+					<hr />
+					<dl>
+						<dt>
+							<p>msgid</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>平台流水号：上行在梦网云通讯平台中的唯一编号</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>mobile</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>单个手机号。号码规则详见 <a class="iphone" href="#phone">手机号码规则</a></dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>spno</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>完整的通道号</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>exno</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>下行时填写的exno</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>rtime</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>上行返回的时间：YYYY-MM-DD HH:MM:SS</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>content</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>短信内容：最大支持350个字,一个字母或一个汉字都视为一个字。编码方法：urlencode（GBK明文）</dd>
+					</dl>
+					<hr />
+					<div class="shili sl4">
+						<div class="qingqiu">
+							<h2>请求实例</h2>
+							<span>
+								<a class="JSON">JSON</a>
+								<a class="XML">XML</a>
+							</span>
+						</div>
+						<div class="json-cont">
+							<h3>JSON</h3>
+							<div class="sastyle">
+								{"userid":"J10003","pwd":"26dad7f364507df18f3841cc9c4ff94d","timestamp":"0803192020","retsize":300}
+							</div>
+							<p class="succ">发送成功</p>
+							<h3>JSON</h3>
+							<div class="sastyle">
+								{
+								"result":0,
+								"mos": [
+								{
+								"msgid":9223372045854775808,
+								"mobile":"13800138000",
+								"spno":"1000457890006",
+								"exno":"0006",
+								"rtime":"2016-08-04 17:38:59",
+								"content":"%b2%e2%ca%d4%b6%cc%d0%c5"
+								},
+								{
+								"msgid":9223372045854895808,
+								"mobile":"13100131000",
+								"spno":"1000357890006",
+								"exno":"0006",
+								"rtime":"2016-08-04 17:39:50",
+								"content":"%b2%e2%ca%d4%b6%cc%d0%c5"
+								}
+								]
+								}
+							</div>
+							<p class="succ">发送失败</p>
+							<h3>JSON</h3>
+							<div class="sastyle">
+								{
+								"result":-100999,
+								"msgid":0,
+								"custid":""
+								}
+							</div>
+						</div>
+					</div>
+					<hr />
+					<h1 id="status">获取状态报告接口</h1>
+					<div class="kuang">
+						<h2>请求地址(URL)</h2>
+						<p class="zi">
+							<span class="post">POST</span><span class="url">http://ip:port/sms/v2/std/get_rpt</span>
+						</p>
+					</div>
+					<hr />
+					<h3 class="can">请求参数</h3>
+					<hr />
+					<dl>
+						<dt>
+							<p>userid</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>用户账号：长度最大6字符，统一大写</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>pwd</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>用户密码(密文)：定长小写32位字符。密码规则详见下文 鉴权规则<a class="jian" href="#jianquan">鉴权规则</a></dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>pwd</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>用户密码(密文)：定长小写32位字符。密码规则详见下文 <a class="jian" href="#jianquan">鉴权规则</a></dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>timestamp</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>时间戳：24小时制格式：MMDDHHMMSS,即月日时分秒，定长10位,月、日、时、分、秒每段不足2位时左补0，密码选择MD5加密方式时必填该参数，密码选择明文方式时则不用填写</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>retsize</p>
+							<p class="other">string</p>
+							<p class="other">非必须</p>
+						</dt>
+						<dd>每次请求想要获取的上行最大条数。最大200,超过200按200返回。小于等于0或不填时，系统返回默认条数，默认100条</dd>
+					</dl>
+					<hr />
+					<h2 class="can">返回参数</h2>
+					<hr />
+					<dl>
+						<dt>
+							<p>result</p>
+							<p class="other">int</p>
+						</dt>
+						<dd>单条短信发送请求处理结果：0：成功，非0：失败，详见下文 <a class="cuo" href="#error">错误代码</a></dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>rpts</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>result非0时mos为空</dd>
+					</dl>
+					<hr />
+					<h2 class="can">rpts包结构体</h2>
+					<hr />
+					<dl>
+						<dt>
+							<p>msgid</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>平台流水号：上行在梦网云通讯平台中的唯一编号</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>custid</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>用户自定义流水号：对应下行请求时填写的custid</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>pknum</p>
+							<p class="other">int</p>
+						</dt>
+						<dd>当前条数</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>pktotal</p>
+							<p class="other">int</p>
+						</dt>
+						<dd>总条数</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>mobile</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>单个手机号。号码规则详见 <a class="iphone" href="#phone">手机号码规则</a></dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>spno</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>完整的通道号</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>exno</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>下行时填写的exno</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>stime</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>状态报告对应的下行发送时间:YYYY-MM-DD HH:MM:SS</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>rtime</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>上行返回的时间：YYYY-MM-DD HH:MM:SS</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>status</p>
+							<p class="other">int</p>
+						</dt>
+						<dd>接收状态：0:成功,非0:失败</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>errcode</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>状态报告错误代码</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>errdesc</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>状态报告错误代码的描述</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>exdata</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>下行时填写的exdata</dd>
+					</dl>
+					<hr />
+					<div class="shili sl5">
+						<div class="qingqiu">
+							<h2>请求实例</h2>
+							<span>
+								<a class="JSON">JSON</a>
+								<a class="XML">XML</a>
+							</span>
+						</div>
+						<div class="json-cont">
+							<h3>JSON</h3>
+							<div class="sastyle" style="padding-top: 22px;">{"userid":"J10003","pwd":"26dad7f364507df18f3841cc9c4ff94d","timestamp":"0803192020","retsize":300}
+							</div>
+							<p class="succ">获取成功返回示例</p>
+							<h3>JSON</h3>
+							<div class="sastyle">
+								{
+								"result":0,
+								"rpts": [
+								{
+								"msgid":9223372045854775808,
+								"custid":"b3d0a2783d31b21b8573",
+								"pknum":1,
+								"pktotal":2,
+								"mobile":"13800138000",
+								"spno":"1000457890006",
+								"exno":"0006",
+								"stime":"2016-08-04 17:38:55",
+								"rtime":"2016-08-04 17:38:59",
+								"status":0,
+								"errcode":"DELIVRD",
+								"errdesc":"success",
+								"exdata":"exdata0002"
+								},
+								{
+								"msgid":9223372045854875808,
+								"custid":"b3d0a2783d31b21b8573",
+								"pknum":2,
+								"pktotal":2,
+								"mobile":"13800138000",
+								"spno":"1000457890006",
+								"exno":"0006",
+								"stime":"2016-08-04 17:38:55",
+								"rtime":"2016-08-04 17:38:59",
+								"status":0,
+								"errcode":"DELIVRD",
+								"errdesc":"success",
+								"exdata":"exdata0002"
+								}
+								]
+								}
+							</div>
+							<p class="succ">获取失败返回示例</p>
+							<h3>JSON</h3>
+							<div class="sastyle">
+								{
+								"result":-100999,
+								"msgid":0,
+								"custid":""
+								}
+							</div>
+						</div>
+					</div>
+					<hr />
+					<!--<h1><a name="check">查询余额</a></h1>
+					<div class="kuang">
+						<h2>请求地址(URL)</h2>
+						<p class="zi">
+							<span class="post">POST</span><span class="url">http://ip:port/sms/v2/std/get_balance</span>
+						</p>
+					</div>
+					<hr />
+					<h3 class="can">请求参数</h3>
+					<hr />
+					<dl>
+						<dt>
+							<p>userid</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>用户账号：长度最大6字符，统一大写</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>pwd</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>用户密码(密文)：定长小写32位字符。密码规则详见下文 <a class="jian" href="#jianquan">鉴权规则</a></dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>timestamp</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>时间戳：24小时制格式：MMDDHHMMSS,即月日时分秒，定长10位,月、日、时、分、秒每段不足2位时左补0，密码选择MD5加密方式时必填该参数，密码选择明文方式时则不用填写</dd>
+					</dl>
+					<hr />
+					<h2 class="can">返回参数</h2>
+					<hr />
+					<dl>
+						<dt>
+							<p>result</p>
+							<p class="other">int</p>
+						</dt>
+						<dd>单条短信发送请求处理结果：0：成功，非0：失败，详见下文 <a class="cuo" href="#error">错误代码</a></dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>rpts</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>result非0时mos为空</dd>
+					</dl>
+					<hr />
+					<div class="shili sl6">
+						<div class="qingqiu">
+							<h2>请求实例</h2>
+							<span>
+								<a class="JSON">JSON</a>
+								<a class="XML">XML</a>
+							</span>
+						</div>
+						<div class="json-cont">
+							<h3>JSON</h3>
+							<div class="sastyle">
+								<xmp>
+									<?xml version=1.0 encoding=utf-8?>
+									<feereq>
+									<userid>J10003</userid>
+									<pwd>26dad7f364507df18f3841cc9c4ff94d</pwd>
+									<timestamp>0803192020</timestamp>
+									</feereq>
+								</xmp>
+							</div>
+							<p class="succ">获取成功返回示例</p>
+							<h3>JSON</h3>
+							<div class="sastyle">
+								<xmp>
+									<?xml version=1.0 encoding=utf-8?>
+									<feersp>
+									<result>0</result>
+									<balance>99885514</balance>
+									</feersp>
+								</xmp>
+							</div>
+							<p class="succ">获取失败返回示例</p>
+							<h3>JSON</h3>
+							<div class="sastyle">
+								<xmp>
+									<?xml version=1.0 encoding=utf-8?>
+									<feersp>
+									<result>-100999</result>
+									<balance>0</balance>
+									</feersp>
+								</xmp>
+							</div>
+						</div>
+					</div>-->
+					<!--<hr />-->
+				</div>
+					<div class="fulu-cont down none">
+					<h1 id="jianquan">鉴权规则</h1>
+					<hr />
+						<h2>账号+密码的密文值进行进行用户鉴权 (账号默认鉴权模式)：</h2>
+						<p>
+							userid填写账号明文，pwd的密码加密方式如下：将userid值大写、固定字符串00000000、明文pwd、timestamp依次拼接成字符串后，再进行MD5加密，userid和明文的pwd在梦网开户时提供，timestamp为时间戳，24小时制，格式为：MMDDHHMMSS，即月日时分秒，定长10位，月、日、时、分、秒每段不足2位时左补0。<br />
+							(备注：时间戳请填写发送时动态的准确时间，不要填写固定值，否则时间误差太大服务器有可能拒绝您的请求)。
+						</p>
+						<p></p>
+						<h2>账号+密码的明文值进行进行用户鉴权(需申请)：</h2>
+						<p>
+							userid及pwd都填写明文，如需使用此种鉴权方式，可联系我司技术支撑人员申请密码明文鉴权。
+						</p>
+						<p></p>
+						<h2>apikey进行用户鉴权(需申请)：</h2>
+						<p>apikey为32位长度，使用此种鉴权方式时，则userid及pwd无效不可用，如需使用此种鉴权方式，可联系我司技术支撑人员申请apikey。</p>
+						<hr />
+					<h1 id="phone">手机号码规则</h1>
+						<p>(1) 每次请求所提交的号码段类型不受限制，但系统会对每个手机号码做合法性验证，若有不合法的手机号码，以失败状态报告的形式返回。号码段类型分为：移动、联通、电信手机。</p>
+						<p></p>
+						<p>(2) 若只发送国外的号码，那么号码规则必须是：00+国际电话区号+手机号码。</p>
+						<p></p>
+						<p>(3) 若只发送中国的号码，号码前面无需加国际电话区号(0086)。</p>
+						<p></p>
+						<p>(4) 发送的号码当中既有中国也有国外，那么号码规则必须是：00+国家电话区号+手机号码，如：香港号码56455811,中国号码13265661400，那么发送时应该填0085256455811,008613265661400</p>
+						<hr />
+					<h1 id="pipei">匹配状态报告规则</h1>
+					<hr />
+						<h2 class="hh">单条发送接口</h2>
+						<dl>
+							<dt>(1)custid匹配方法：</dt>
+							<dd>短短信时使用下行请求包里的custid+mobile进行匹配；</dd>
+   							<dd>长短信时使用下行请求包里的custid+mobile+pknum进行匹配；</dd>
+						</dl>
+						<dl>
+							<dt>(2)msgid匹配方法：</dt>
+							<dd>长短信时使用下述公式计算手机号对应的长短信分条的流水号：</dd>
+   							<dd>msgid+(当前分条数-1)*17179869184；</dd>
+						</dl>
+						<p></p>
+						<h2 class="hh">相同内容群发接口</h2>
+						<dl>
+							<dt>(1)custid匹配方法：</dt>
+							<dd>短短信时使用下行请求包里的custid+mobile进行匹配；</dd>
+   							<dd>长短信时使用下行请求包里的custid+mobile+pknum进行匹配；</dd>
+						</dl>
+						<dl>
+							<dt>(2)msgid匹配方法：</dt>
+							<dd>短短信时使用返回包里的msgid进行匹配，但每个手机号码对应的msgid需要按下面公式进行计算：msgid+手机号码位置-1；</dd>
+							<dd>长短信时使用下述公式计算每个手机号对应的长短信分条的流水号：</dd>
+   							<dd>msgid+(当前分条数-1)*17179869184；</dd>
+						</dl>
+						<p></p>
+						<dl>
+						<h2 class="hh">个性化群发接口</h2>
+						<dt>(1)custid匹配方法：</dt>
+						   <dd>短短信时使用请求包里的multimt中的custid+mobile进行匹配；
+						  <dd>长短信时使用请求包里的multimt中的custid+mobile+pknum进行匹配；
+						<dt>(2)msgid匹配方法：</dt>
+						   <dd>短短信时使用返回包里的msgid进行匹配，但每个手机号码对应的msgid需要按下面公式进行计算：msgid+手机号码位置-1;</dd>
+						   <dd>长短信时使用下述公式计算每个手机号对应的长短信分条的流水号：</dd>
+						  <dd>(msgid+(手机号位置-1))+(当前分条数-1)*17179869184；</dd>
+						</dl>
+						<hr />
+						<div class="errorDa">
+							<h1><a name="error">错误代码</a></h1>
+							<hr />
+							<dl>
+								<dt>
+									<p>-100001</p>
+								</dt>
+								<dd>鉴权不通过,请检查账号,密码,时间戳,固定串,以及MD5算法是否按照文档要求进行设置</dd>
+							</dl>
+							<hr />
+							<dl>
+								<dt>
+									<p>-100002</p>
+								</dt>
+								<dd>用户多次鉴权不通过,请检查帐号,密码,时间戳,固定串,以及MD5算法是否按照文档要求进行设置</dd>
+							</dl>
+							<hr />
+							<dl>
+								<dt>
+									<p>-100003</p>
+								</dt>
+								<dd>用户欠费</dd>
+							</dl>
+							<hr />
+							<dl>
+								<dt>
+									<p>-100004</p>
+								</dt>
+								<dd>custid或者exdata字段填写不合法</dd>
+							</dl>
+							<hr />
+							<dl>
+								<dt>
+									<p>-100011</p>
+								</dt>
+								<dd>短信内容超长</dd>
+							</dl>
+							<hr />
+							<dl>
+								<dt>
+									<p>-100012</p>
+								</dt>
+								<dd>手机号码不合法</dd>
+							</dl>
+							<hr />
+							<dl>
+								<dt>
+									<p>-100014</p>
+								</dt>
+								<dd>手机号码超过最大支持数量（1000）</dd>
+							</dl>
+							<hr />
+							<dl>
+								<dt>
+									<p>-100029</p>
+								</dt>
+								<dd>端口绑定失败</dd>
+							</dl>
+							<hr />
+							<dl>
+								<dt>
+									<p>-100056</p>
+								</dt>
+								<dd>用户账号登录的连接数超限</dd>
+							</dl>
+							<hr />
+							<dl>
+								<dt>
+									<p>-100057</p>
+								</dt>
+								<dd>用户账号登录的IP错误</dd>
+							</dl>
+							<hr />
+							<dl>
+								<dt>
+									<p>-100999</p>
+								</dt>
+								<dd>平台数据库内部错误</dd>
+							</dl>
+							<hr />
+						</div>
+						<p></p>
+						<p></p>
+					<h1 id="notice">注意事项</h1>
+					<hr />
+						<p>
+							(1) 请求报文支持JSON请求方式，用Content-type识别请求包报文的格式，如使用JSON时，格式如下：
+						</p>
+						<div class="wai">
+								<div class="sastyle">POST /sms/v2/std/single_send HTTP/1.1
+								Host: 192.168.1.1
+								Content-Type: application/json
+								Content-Length: length
+							</div>
+						</div>
+						
+						<p>(2)为确保能够快速及时获取到上行或状态报告，请在调用接口后判断接口是否有上行或状态报告返回，若有返回，则需要一直获取，直到接口返回无数据时，延时5秒，然后再次重复前面的获取和判断操作。</p>
+						<p></p>
+						<p>(3)单条发送接口每次只能发送一个号码，否则接口返回失败。</p>
+						<p></p>
+						<p>(4)“推送上行”及“推送状态报告”默认不开启，如果需开启，请联系技术支撑人员。</p>
+						<p></p>
+						<p>(5)在“状态报告”的包结构“rpts”中，若是短短信，“pknum”与“pktotal”两个字段的值都为1。</p>
+						<p></p>
+						<p style="margin-bottom: 150px;">(6)对应本接口说明文档的的示例代码，详见同级目录下的示例代码文件。</p>
+
+				</div>
+
+				</div>
+				<div class="voice-model none">
+					<div class="voice-cont  main-cont">
+					<h1 style="font-size:24px;color:#555;">接入指南</h1>
+					<p>
+						1.进入梦网云通讯平台首页，注册梦网云通讯平台账号并登陆到管理控制台，击“创建发送帐号”进行发送账号的创建
+					</p>
+					<img src="images/console.png" alt="梦网云控制台首页"/>
+					<p>
+						2.未认证之前，梦网云通讯平台提供一个测试账号供开发人员进行测试接入，列表中”发送账号”及”密码”的内容就是我们API接口的请求账号及密码，测试号码中可设置指定发送的手机号码，点击”启用”之后该账号即可使用。
+					</p>
+					<p class="hui">
+						(备注：在对接口进行开发测试时只能对”可发送手机号”中填写的手机号码进行短信发送，如填写了除此之外的手机号码则无法进行发送)。
+					</p>
+					<img src="images/u463.png" alt="发送账号列表"/>
+					<p>
+						3.点击顶部菜单”账号管理”选择”账号信息”页面，该页”Rest URL”里的内容就是我们调用API接口的请求地址。
+					</p>
+					<img src="images/zhanghao.png" alt="账号信息管理"/>
+					<p>
+						4.左侧导航栏点击“接口简介”，在”API 接口介绍”下点击”点击此处进行下载”下载完整的API 接入开发DEMO示例及SDK开发包，用户可使用我们提供的SDK开发包，即可快速完成平台接入使用我们所提供的功能服务，也可以参考API DEMO示例根据自己的功能需求进行自主开发完成平台接入。
+					</p>
+					<img src="images/yuyin.png" alt="语音API接口介绍"/>
+				</div>
+					<div class="voice-jiekou none jiekou-cont">
+						<h1><a name="voice-imsApi">语音API 接口介绍</a></h1>
+					<hr />
+					<p>
+						本API采用了SOAP风格设计和实现，是一种轻量的、简单的、基于XML的协议。另外为了方便用户进行对接，我们提供了API的Demo示例，用户可直接调用梦网提供的DEMO示例快速完成平台接入。
+					</p>
+					<table border="1" class="table">
+						<tr>
+							<td>平台和语言</td>
+							<td>说明</td>
+							<td>操作</td>
+						</tr>
+						<tr>
+							<td>JAVA</td>
+							<td>语音API Demo示例</td>
+							<td>
+								<img src=""/>
+								<a  href="../file/download/montnets-voice-api-java-3.0.zip">下载</a>
+							</td>
+						</tr>
+					</table>
+					<hr />
+					<h1 id="voice-single">语音验证码接口</h1>
+					<div class="kuang">
+						<h2>请求地址(URL)</h2>
+						<p class="zi">
+							<span class="post">POST</span><span class="url">http://ip:port/voiceprepose/MongateSendSubmit</span>
+						</p>
+					</div>
+					<hr />
+					<h3 class="can">请求参数</h3>
+					<hr />
+					<dl>
+						<dt>
+							<p>userid</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>用户账号：长度最大6字符，统一大写</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>password</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>用户密码，长度最大32个字节</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>pszMobis</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>电话号码，只支持单个</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>pszMsg</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>消息类型为1 表示是验证码（4到8位字符 只能是数字或者字母不区分大小写）消息类型为2 表示文本语音</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>iMobiCount</p>
+							<p class="other">int</p>
+						</dt>
+						<dd>固定值：1</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>pszSubPort</p>
+							<p class="other">string</p>
+							<p class="other">非必须</p>
+						</dt>
+						<dd>回拨显示的号码，目前不支持使用，请勿输入，（可用不传），如果输入会下单不成功返回错误码 MW:1094（显示号码不合法）</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>MsgId</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>一个8字节64位的大整型（INT64），格式化成的字符串。因此该字段必须为纯数字，且范围不能超过INT64的取值范围（-2^63……2^63-1）即-9223372036854775808……9223372036854775807。</br>格式化成字符串后最大长度不超过20个字节。</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>PtTmplId</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>语音模版编号</dd>
+					</dl>
+					<hr />
+					<dl style="height: 90px;">
+						<dt style="height: 70px;">
+							<p>msgType</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>
+							消息类型</br>
+							1：语言验证码</br>
+							2：语音通知（文本语言</br>
+							3：语音通知（语音id）
+						</dd>
+					</dl>
+					<hr />
+					<h2 class="can">返回参数</h2>
+					<hr />
+					<div class="sendSucc">
+						<h3>发送成功：</h3><span>返回的字符串长度在15~25之间表示发送成功，该值代表本次短信首个手机短信的平台流水编号，详见 3.3 流水号规则 说明，如：-8485643440204283743或 1485643440204283743。</span>
+					</div>
+					<div class="sendFiled">
+						<h3>发送失败：</h3><span>返回的字符串长度小于15表示发送失败，如：-1，-12等，详见 4 错误代码表。</span>
+					</div>
+					<hr />
+					<div class="shili">
+						<div class="qingqiu">
+							<h2>请求实例</h2>
+						</div>
+						<div class="json-cont">
+							<h3>urlencode</h3>
+							<div class="sastyle">
+								userId=J10003&password=123456&pszMobis=13800138000&pszMsg=6888&iMobiCount=1&pszSubPort=1598675663&MsgId=9223372036854775808&PtTmplId=E8uiud&msgType=1
+							</div>
+							<p class="succ">发送成功</p>
+							<h3>XML</h3>
+							<div class="sastyle">
+								<xmp><?xml version="1.0" encoding="utf-8"?>
+									<string xmlns="http://tempuri.org/">-8485643440204283743</string>
+								</xmp>
+							</div>
+							<p class="succ">发送失败</p>
+							<h3>XML</h3>
+							<div class="sastyle"><xmp><?xml version="1.0" encoding="utf-8"?>
+									<string xmlns="http://tempuri.org/">MW:0000</string>
+								</xmp>
+							</div>
+						</div>
+					</div>
+					<hr />
+					<h1 id="voice-same">获取状态报告</h1>
+					<div class="kuang">
+						<h2>请求地址(URL)</h2>
+						<p class="zi">
+							<span class="post">POST</span><span class="url">http://ip:port/voiceprepose/MongateGetDeliver</span>
+						</p>
+					</div>
+					<hr />
+					<h3 class="can">请求参数</h3>
+					<hr />
+					<dl>
+						<dt>
+							<p>userid</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>用户账号：长度最大6字符，统一大写</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>password</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>用户密码(密文)：定长小写32位字符</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>iReqType</p>
+							<p class="other">int</p>
+						</dt>
+						<dd>请求类型(2: 状态报告)</dd>
+					</dl>
+					<hr />
+					<h2 class="can">返回参数</h2>
+					<hr />
+					<div class="sendSucc">
+						<h3>获取成功：</h3>
+						<span>
+							接收信息内容列表(最高维数为500)格式说明：<br />
+							信息类型(状态报告标志2),时间,平台消息编号,*,电话号码,Monga
+							teSendSubmit时填写的MsgId（用户自编消息编号）,*,状态值(0:成功 非0:失败)
+							如返回为null(为空)时 ,则无状态报告信息,详细错误原因(错误代码)
+						</span>
+					</div>
+					<hr />
+					<div class="shili">
+						<div class="qingqiu">
+							<h2>请求实例</h2>
+						</div>
+						<div class="json-cont">
+							<h3>urlencode</h3>
+							<div class="sastyle">
+								userId=J10003&password=123456&iReqType=1
+							</div>
+							<p class="succ">发送成功</p>
+							<h3>XML</h3>
+							<div class="sastyle"><xmp><?xml version="1.0" encoding="utf-8"?>
+									<ArrayOfString xmlns="http://tempuri.org/">
+									<string>1,2008-01-23 15:43:34,15986756631,10657302056780408,408,*,上行信息1</string>
+									<string>2,2008-01-23 15:43:34,0518153837115735, 10657302056780408,13265661403,45781,78456,0,DELIVRD</string>
+									</ArrayOfString>
+								</xmp>
+							</div>
+						</div>
+					</div>
+					<!--<h1><a name="voice-check">查询余额</a></h1>
+					<div class="kuang">
+						<h2>请求地址(URL)</h2>
+						<p class="zi">
+							<span class="post">POST</span><span class="url">http://ip:port/voiceprepose/MongateQueryBalance</span>
+						</p>
+					</div>
+					<hr />
+					<h3 class="can">请求参数</h3>
+					<hr />
+					<dl>
+						<dt>
+							<p>userid</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>用户账号：长度最大6字符，统一大写</dd>
+					</dl>
+					<hr />
+					<dl>
+						<dt>
+							<p>password</p>
+							<p class="other">string</p>
+						</dt>
+						<dd>用户密码(密文)：定长小写32位字符</dd>
+					</dl>
+					<hr />
+					<h2 class="can">返回参数</h2>
+					<hr />
+					<div class="sendSucc">
+						<h3>int：</h3>
+						<span>
+							余额字段，单位元
+						</span>
+					</div>
+					<div class="sendSucc">
+						<h3>feeFlag：</h3>
+						<span>
+							扣费类型（预付费(按条充值计费)、预付费(按金额充值计费)、后付费(按条充值计费)、后付费(按金额充值计费)），其中后付费类型的两种余额返回都是0
+						</span>
+					</div>
+					<div class="sendSucc">
+						<h3>errorCode：</h3>
+						<span>
+							查询失败时返回的错误代码 如果余额字段为-1表示查询失败，此字段具体描述了查询失败的原因，对应的中文描述请查看错误代码描述
+						</span>
+					</div>
+					<hr />
+					<div class="shili">
+						<div class="qingqiu">
+							<h2>请求实例</h2>
+						</div>
+						<div class="json-cont">
+							<h3>urlencode</h3>
+							<div class="sastyle">
+								userId=J10003&password=123456&iReqType=1
+							</div>
+							<p class="succ">查询成功</p>
+							<h3>XML</h3>
+							<div class="sastyle"><xmp><?xml version="1.0" encoding="utf-8"?>
+									<string xmlns="http://tempuri.org/">
+									<int >10</int>
+									<feeFlag>
+									200
+									</feeFlag>
+									<errorCode></errorCode>
+									</string>
+								</xmp>
+							</div>
+							<p class="succ">查询失败</p>
+							<h3>XML</h3>
+							<div class="sastyle"><xmp><?xml version="1.0" encoding="utf-8"?>
+									<string xmlns="http://tempuri.org/">
+									<int >10</int>
+									<feeFlag>
+									200
+									</feeFlag>
+									<errorCode></errorCode>
+									</string>
+								</xmp>
+							</div>
+							<hr />
+						</div>
+					</div>-->
+					</div>
+					<div class="voice-fulu none fulu-cont">
+						<h1><a name="error">错误代码</a></h1>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:0000</p>
+							</dt>
+							<dd>上行语音验证码请求参数有空值</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:0001</p>
+							</dt>
+							<dd>上行语音验证码请求参数数据格式错误</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:0002</p>
+							</dt>
+							<dd>用户验证失败</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:0003</p>
+							</dt>
+							<dd>服务器内部错误</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:0004</p>
+							</dt>
+							<dd>网络连接超时</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:0005</p>
+							</dt>
+							<dd>重发失败</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:0006</p>
+							</dt>
+							<dd>一分钟内同一个号码同一个用户同一个验证码 重复订单</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:0007</p>
+							</dt>
+							<dd>用户未绑定语音通道</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:0008</p>
+							</dt>
+							<dd>用户余额不足</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:0009</p>
+							</dt>
+							<dd>没找到用户费率</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:0010</p>
+							</dt>
+							<dd>没找到用户扣费类型</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:0011</p>
+							</dt>
+							<dd>当前不支持语音通知</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:0012</p>
+							</dt>
+							<dd>短信过期</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1000</p>
+							</dt>
+							<dd>被叫未接听</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1001</p>
+							</dt>
+							<dd>被叫拒接</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1002</p>
+							</dt>
+							<dd>外呼失败</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1003</p>
+							</dt>
+							<dd>金额不为整数</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1004</p>
+							</dt>
+							<dd>余额不足</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1005</p>
+							</dt>
+							<dd>数字非法</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1006</p>
+							</dt>
+							<dd>不允许有空值</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1007</p>
+							</dt>
+							<dd>枚举类型取值错误</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1008</p>
+							</dt>
+							<dd>不合法</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1009</p>
+							</dt>
+							<dd>手机号不合法</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1010</p>
+							</dt>
+							<dd>号码不合法</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1011</p>
+							</dt>
+							<dd>HTTP状态码不等于200</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1012</p>
+							</dt>
+							<dd>HTTP状态码不等于200</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1013</p>
+							</dt>
+							<dd>手机号码为空</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1014</p>
+							</dt>
+							<dd>手机号为受保护的号码</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1015</p>
+							</dt>
+							<dd>登录邮箱或手机号为空</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1016</p>
+							</dt>
+							<dd>邮箱不合法</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1017</p>
+							</dt>
+							<dd>密码不能为空</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1018</p>
+							</dt>
+							<dd>没有测试子账号</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1019</p>
+							</dt>
+							<dd>金额过大,不要超过12位数字</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1020</p>
+							</dt>
+							<dd>余额被冻结</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1021</p>
+							</dt>
+							<dd>余额已注销</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1022</p>
+							</dt>
+							<dd>通话时长需大于60秒</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1023</p>
+							</dt>
+							<dd>系统内部错误</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1024</p>
+							</dt>
+							<dd>应用余额不足</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1025</p>
+							</dt>
+							<dd>字符长度太长</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1026</p>
+							</dt>
+							<dd>callId不能为空</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1027</p>
+							</dt>
+							<dd>日期格式错误</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1028</p>
+							</dt>
+							<dd>短信服务请求异常</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1029</p>
+							</dt>
+							<dd>url关键参数为空</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1030</p>
+							</dt>
+							<dd>号码不合法</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1031</p>
+							</dt>
+							<dd>没有通道类别</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1032</p>
+							</dt>
+							<dd>该类别为冻结状态</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1033</p>
+							</dt>
+							<dd>没有足够金额</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1034</p>
+							</dt>
+							<dd>不是国内手机号码并且不是国际电话</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1035</p>
+							</dt>
+							<dd>黑名单</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1036</p>
+							</dt>
+							<dd>含非法关键字</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1037</p>
+							</dt>
+							<dd>该通道类型没有第三方通道</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1038</p>
+							</dt>
+							<dd>短信模板ID不存在</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1039</p>
+							</dt>
+							<dd>短信模板未审核通过</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1040</p>
+							</dt>
+							<dd>短信模板替换个数与实际参数个数不匹配</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1041</p>
+							</dt>
+							<dd>短信模板ID为空</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1042</p>
+							</dt>
+							<dd>短信内容为空</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1043</p>
+							</dt>
+							<dd>短信类型长度应为1</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1044</p>
+							</dt>
+							<dd>同一天同一用户不能发超过3条相同的短信</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1045</p>
+							</dt>
+							<dd>模板ID含非法字符</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1046</p>
+							</dt>
+							<dd>短信模板有替换内容，但参数为空</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1047</p>
+							</dt>
+							<dd>短信模板替换内容过长，不能超过70个字符</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1048</p>
+							</dt>
+							<dd>手机号码不能超过100个</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1049</p>
+							</dt>
+							<dd>短信模板已删除</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1050</p>
+							</dt>
+							<dd>同一天同一用户不能发超过N条验证码(n为用户自己配置)</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1051</p>
+							</dt>
+							<dd>短信模板名称为空</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1052</p>
+							</dt>
+							<dd>创建短信模板失败</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1053</p>
+							</dt>
+							<dd>短信模板名称错误</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1054</p>
+							</dt>
+							<dd>短信模板内容错误</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1055</p>
+							</dt>
+							<dd>短信模板id为空</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1056</p>
+							</dt>
+							<dd>短信模板id不存在</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1057</p>
+							</dt>
+							<dd>未上线应用不能超过100个client</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1058</p>
+							</dt>
+							<dd>已经是开通状态</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1059</p>
+							</dt>
+							<dd>子账号余额不足</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1061</p>
+							</dt>
+							<dd>应用名称已存在</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1062</p>
+							</dt>
+							<dd>子账户昵称为空</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1063</p>
+							</dt>
+							<dd>子账户名称存在非法字符</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1064</p>
+							</dt>
+							<dd>子账户昵称长度有误</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1065</p>
+							</dt>
+							<dd>子账户clientNumber为空</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1066</p>
+							</dt>
+							<dd>同一应用下，friendlyname重复</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1067</p>
+							</dt>
+							<dd>子账户friendlyname只能包含数字和字母和下划线</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1068</p>
+							</dt>
+							<dd>client_number长度有误</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1069</p>
+							</dt>
+							<dd>client_number不存在或不属于该主账号</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1070</p>
+							</dt>
+							<dd>client已经关闭</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1071</p>
+							</dt>
+							<dd>client充值失败</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1072</p>
+							</dt>
+							<dd>client计费类型为空</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1073</p>
+							</dt>
+							<dd>clientType只能取值0,1</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1074</p>
+							</dt>
+							<dd>clientType为1时，charge不能为空</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1075</p>
+							</dt>
+							<dd>clientNumber未绑定手机号</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1076</p>
+							</dt>
+							<dd>同一应用下同一手机号只能绑定一次</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1077</p>
+							</dt>
+							<dd>单次查询记录数不能超过100</dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1078</p>
+							</dt>
+							<dd>绑定手机号失败<dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1079</p>
+							</dt>
+							<dd>子账号是否显号(isplay)不能为空<dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1080</p>
+							</dt>
+							<dd>子账号是否显号(display)取值只能是0(不显号)和1(显号)<dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1081</p>
+							</dt>
+							<dd>应用下该子账号不存在<dd>
+						</dl>
+						<hr />
+						<dl>
+							<dt>
+								<p>MW:1082</p>
+							</dt>
+							<dd>friendlyname不能为空<dd>
+						</dl>
+						<hr />
+					</div>
+				</div>
+				
+				</div>
+				<div class="daima-ims daima-voc none">
+				<div class="resize"></div>
+				<div class="daima-cont">
+					<h2>语音验证码</h2>
+					<div class="down-cont">
+						<p>
+							/**
+
+      * 发送语音
+
+      */
+
+     public static void sendVoice()
+
+     {
+
+          //参数
+
+          String reqUrl = "http://192.168.2.119:8080/voice_prepose/MongateSendSubmit" ; // 指定的资源路径
+
+          String userId = "AA" ; // 用户账号
+
+          String password = "123456" ; //用户密码
+
+          String pszMobis = "159XXXXXXXX" ; // 电话号码
+
+          String pszMsg = "我是文本语音通知内容" ; // 短信内容 消息类型1：验证码 消息类型2：文本语音通知内容（350个字以内） 消息类型3：语音通知（语音id）            
+
+          String iMobiCount = "1" ; //号码个数  
+
+          String pszSubPort = "" ; //（目前暂时不支持）回拨显示的电话号码 显示的号码（可用不传），语音验证码的被叫侧显示的号码。可显示400号码或固话。长度不能超过20位
+
+          String msgId = "14131212" ; //客户端流水号  
+
+          String ptTmpiid = "1" ; //模板id  
+
+          String msgType  = "3" ; //消息类型 1：语言验证码 2：语音通知（文本语言） 3：语音通知（语音id）       
+
+         
+
+          //生成请求参数字符串
+
+          StringBuffer reqParams=new StringBuffer("userId="+userId+"&password="+password+"&pszMobis="+pszMobis);
+
+          reqParams.append("&pszMsg="+pszMsg+"&iMobiCount="+iMobiCount);
+
+          reqParams.append("&pszSubPort="+pszSubPort+"&MsgId="+msgId);
+
+          reqParams.append("&PtTmplId="+ptTmpiid+"&msgType="+msgType);
+
+         
+
+          //通过HTTP POST请求
+
+          String result=executePost(reqUrl, reqParams);
+
+          System.out.println("返回值:"+result);
+      }    
+						</p>
+					</div>
+				</div>
+				<div class="daima-cont">
+					<h2>获取状态报告</h2>
+					<div class="down-cont">
+						<p>
+							
+
+/**
+
+      * 查询余额
+
+      */
+
+     public static void getBalance()
+
+     {
+
+          String reqUrl = "http://192.169.2.26:8099/voice_req/MongateQueryBalance" ; // 指定的资源路径
+
+          String userId = "10" ; // 用户账号
+
+          String password = "123456" ; //用户密码
+
+         
+
+          //生成请求参数字符串
+
+          StringBuffer reqParams=new StringBuffer("userId="+userId+"&password="+password);
+
+         
+
+          //通过HTTP POST请求
+
+          String result=executePost(reqUrl, reqParams);
+
+          System.out.println("返回值:"+result);
+
+     }
+
+
+
+						</p>
+					</div>
+				</div>
+				<div class="daima-cont">
+					<h2>公共方法</h2>
+					<div class="down-cont">
+						<p>
+							
+
+/**
+
+      * Http Post请求方法
+
+      * @param reqUrl
+
+      * @param stringBuffer
+
+      * @return
+
+      */
+
+     public static String executePost(String reqUrl,StringBuffer reqParams)
+
+     {
+
+          OutputStream out=null;
+
+          InputStreamReader isr=null;
+
+          BufferedReader in =null;
+
+          OutputStreamWriter outer =null;
+
+          URL url;
+
+          StringBuffer result=new StringBuffer("");
+
+          try {
+
+               url = new URL(reqUrl);
+
+               URLConnection connection = url.openConnection();
+
+               HttpURLConnection httpconn = (HttpURLConnection) connection;
+
+               httpconn.setRequestProperty("Content-Type","application/x-www-form-urlencoded;"); 
+
+               httpconn.setRequestMethod("POST");//设置使用POST的方式发送
+
+               httpconn.setDoInput(true);
+
+               httpconn.setDoOutput(true);//设置容许输出
+
+               httpconn.setConnectTimeout(6*1000); //设置连接超时
+
+               httpconn.setReadTimeout(6*1000);// 读取超时
+
+
+               out= httpconn.getOutputStream();
+
+               outer = new OutputStreamWriter(out,"UTF-8");
+
+               outer.write(reqParams.toString());
+
+               outer.flush();
+
+              
+
+               isr = new InputStreamReader(httpconn.getInputStream(),"UTF-8");
+
+               in= new BufferedReader(isr);
+
+               String inputLine;
+
+               while (null != (inputLine = in.readLine())) {
+
+                    result.append(inputLine);
+
+               }
+
+               return result.toString();
+
+          } catch (Exception e) {
+
+               e.printStackTrace();
+
+               return null;
+
+          }finally{
+
+               if (outer != null) {
+
+                    try {
+
+                         outer.close();
+
+                    } catch (IOException e) {
+
+                         e.printStackTrace();
+
+                    }
+
+               }if (out != null) {
+
+                    try {
+
+                         out.close();
+
+                    } catch (IOException e) {
+
+                         e.printStackTrace();
+
+                    }
+
+               }if (in != null) {
+
+                    try {
+
+                         in.close();
+
+                    } catch (IOException e) {
+
+                         e.printStackTrace();
+
+                    }
+
+               }if (isr != null) {
+
+                    try {
+
+                         isr.close();
+
+                    } catch (IOException e) {
+
+                         e.printStackTrace();
+
+                    }
+
+               }
+
+          }
+
+     }
+
+}
+
+						</p>
+					</div>
+				</div>
+				</div>
+				<div class="daima-ims ims none">
+				<div class="resizeL"></div>
+				<div class="daima-cont">
+					<h2>单条发送</h2>
+					<div class="down-cont">
+						<p>
+							/**
+
+      * @description 单条发送
+
+      */
+
+     public static void singleSend()
+
+     {
+
+          int     ERROR_310099     = -310099;
+
+          try
+
+          {
+
+               //IP或者域名
+
+               String ip="192.169.1.168";
+
+               //端口
+
+               int port=8082;
+
+               //账号
+
+               String userid="TEST01";
+
+               //密码
+
+               String pwd="123456";
+
+              
+
+               // 参数类
+
+               Message message = new Message();
+
+              //账号
+
+               message.setUserid(userid);
+
+
+               // 设置时间戳
+
+               String timestamp = new SimpleDateFormat("MMddHHmmss").format(Calendar.getInstance().getTime());
+
+               message.setTimestamp(timestamp);
+
+
+               // 对密码进行加密
+
+               String passwordStr = message.getUserid().toUpperCase() + "00000000" + pwd + timestamp;
+
+               message.setPwd(getMD5Str(passwordStr));
+
+
+               // 设置手机号码 此处只能设置一个手机号码
+
+               message.setMobile("159XXXXXXXX");
+
+               // 设置内容
+
+               message.setContent(URLEncoder.encode("测试短信", "GBK"));
+
+               // 设置扩展号
+
+               message.setExno("11");
+
+               // 用户自定义流水编号
+
+               message.setCustid("20160929194950100001");
+
+               // 自定义扩展数据
+
+               message.setExdata("abcdef");
+
+               // 业务类型
+
+               message.setSvrtype("SMS001");
+
+
+               // 定义返回值，默认单条发送失败
+
+               int returnInt = ERROR_310099;
+
+               // 调用底层请求方法
+
+               String Message = executePost(message, "http://" + ip + ":" + port + "/sms/v2/std/single_send");
+
+               // Message为-310099,则请求失败，否则请求成功。
+
+               if(String.valueOf(ERROR_310099).equals(Message))
+
+               {
+
+                    // 返回错误码 单条发送失败
+
+                    System.out.println("单条发送提交失败！");
+
+                    return;
+
+               }
+
+
+               // 处理返回结果
+
+               if(Message != null && !"".equals(Message.trim()))
+
+               {
+
+                    // 解析JSON
+
+                    JSONObject parseObject = (JSONObject) JSONValue.parse(Message);
+
+                    // 获取是否成功标识
+
+                    returnInt = Integer.parseInt(String.valueOf(parseObject.get("result")));
+
+                    // returnInt为0，则代表提交成功
+
+                    if(returnInt == 0)
+
+                    {
+
+                         // 平台返回流水号
+
+                         Long rMsgid = (Long) parseObject.get("msgid");
+
+                         // 平台返回的custid
+
+                         String rCustid = (String) parseObject.get("custid");
+
+                         String returnValue = message.getMobile() + "," + rCustid + "," + rMsgid;
+
+                         System.out.println("单条发送提交成功！" + returnValue);
+
+                    }
+
+                    else
+
+                    {
+
+                         System.out.println("单条发送提交失败,错误码：" + returnInt);
+
+                    }
+
+               }
+
+          }
+
+          catch (Exception e)
+
+          {
+
+               // 异常处理
+
+               e.printStackTrace();
+
+          }
+						</p>
+					</div>
+				</div>
+				<div class="daima-cont">
+					<h2>相同内容群发</h2>
+					<div class="down-cont">
+						<p>
+							/**
+
+      * @description 相同内容群发
+
+      */
+
+     public static void batchSend()
+
+     {
+
+          int     ERROR_310099     = -310099;
+
+          try
+
+          {
+
+               //IP或者域名
+
+               String ip="192.169.1.168";
+
+               //端口
+
+               int port=8082;
+
+               //账号
+
+               String userid="TEST01";
+
+               //密码
+
+               String pwd="123456";
+
+               // 参数类
+
+               Message message = new Message();
+
+              
+
+                //账号
+
+               message.setUserid(userid);
+
+               // 设置时间戳
+
+               String timestamp = new SimpleDateFormat("MMddHHmmss").format(Calendar.getInstance().getTime());
+
+               message.setTimestamp(timestamp);
+
+
+               // 对密码进行加密
+
+               String passwordStr = message.getUserid().toUpperCase() + "00000000" + pwd + timestamp;
+
+               message.setPwd(getMD5Str(passwordStr));
+
+
+               // 设置手机号码
+
+               message.setMobile("159XXXXXXXX,139XXXXXXXX");
+
+               // 设置内容
+
+               message.setContent(URLEncoder.encode("测试短信", "GBK"));
+
+               // 设置扩展号
+
+               message.setExno("11");
+
+               // 用户自定义流水编号
+
+               message.setCustid("20160929194950100001");
+
+               // 自定义扩展数据
+
+               message.setExdata("abcdef");
+
+               // 业务类型
+
+               message.setSvrtype("SMS001");
+
+
+               // 定义返回值，默认相同内容群发失败
+
+               int returnInt = ERROR_310099;
+
+               // 调用底层请求方法
+
+               String Message = executePost(message, "http://" + ip + ":" + port + "/sms/v2/std/batch_send");
+
+               // Message为-310099,则请求失败，否则请求成功。
+
+               if(String.valueOf(ERROR_310099).equals(Message))
+
+               {
+
+                    // 返回错误码  相同内容群发失败
+
+                    System.out.println("相同内容群发提交失败！");
+
+                    return;
+
+               }
+
+
+               // 处理返回结果
+
+               if(Message != null && !"".equals(Message.trim()))
+
+               {
+
+                    // 解析JSON
+
+                    JSONObject parseObject = (JSONObject) JSONValue.parse(Message);
+
+                    // 获取是否成功标识
+
+                    returnInt = Integer.parseInt(String.valueOf(parseObject.get("result")));
+
+                    // returnInt为0，则代表提交成功
+
+                    if(returnInt == 0)
+
+                    {
+
+                         // 平台返回流水号
+
+                         Long rMsgid = (Long) parseObject.get("msgid");
+
+                         // 平台返回的custid
+
+                         String rCustid = (String) parseObject.get("custid");
+
+                         String returnValue = message.getMobile().split(",")[0] + "," + rCustid + "," + rMsgid;
+
+                         System.out.println("相同内容群发提交成功！" + returnValue);
+
+                    }
+
+                    else
+
+                    {
+
+                         System.out.println("相同内容群发提交失败,错误码：" + returnInt);
+
+                    }
+
+               }
+
+          }
+
+          catch (Exception e)
+
+          {
+
+               // 异常处理
+
+               e.printStackTrace();
+
+          }
+
+     }
+						</p>
+					</div>
+				</div>
+				<div class="daima-cont">
+					<h2>个性化群发</h2>
+					<div class="down-cont">
+						<p>
+							/**
+
+      * @description 个性化群发
+
+      */
+
+     public static void multiSend()
+
+     {
+
+          int     ERROR_310099     = -310099;
+
+          try
+
+          {
+
+               //IP或者域名
+
+               String ip="192.169.1.168";
+
+               //端口
+
+               int port=8082;
+
+               //账号
+
+               String userid="TEST01";
+
+               //密码
+
+               String pwd="123456";
+
+              
+
+               // 定义返回值，默认个性化群发失败
+
+               int returnInt = ERROR_310099;
+
+
+               Message message = new Message();
+
+               // List集合
+
+               List<MultiMt> multixMts = new ArrayList<MultiMt>();
+
+               // 第一条 短信对象
+
+               MultiMt multixMt1 = new MultiMt();
+
+               // 手机号
+
+               multixMt1.setMobile("159XXXXXXXX");
+
+               // 短信内容
+
+               multixMt1.setContent(URLEncoder.encode("测试短信1", "GBK"));
+
+               // 设置扩展号
+
+               multixMt1.setExno("11");
+
+               // 用户自定义流水编号
+
+               multixMt1.setCustid("20160929194950100001");
+
+               // 自定义扩展数据
+
+               multixMt1.setExdata("abcdef");
+
+               // 业务类型
+
+               multixMt1.setSvrtype("SMS001");
+
+               // 添加短信对象
+
+               multixMts.add(multixMt1);
+
+
+               // 第二条 短信对象
+
+               MultiMt multixMt2 = new MultiMt();
+
+               // 手机号
+
+               multixMt2.setMobile("139XXXXXXXX");
+
+               // 短信内容
+
+               multixMt2.setContent(URLEncoder.encode("测试短信2", "GBK"));
+
+               // 设置扩展号
+
+               multixMt2.setExno("11");
+
+               // 用户自定义流水编号
+
+               multixMt2.setCustid("20160929194950100001");
+
+               // 自定义扩展数据
+
+               multixMt2.setExdata("abcdef");
+
+               // 业务类型
+
+               multixMt2.setSvrtype("SMS001");
+
+               // 添加短信对象
+
+               multixMts.add(multixMt2);
+
+
+               // 生成JSON字符串
+
+               String multimt = new Gson().toJson(multixMts);
+
+               // 设置个性化详情
+
+               message.setMultimt(multimt);
+
+
+               // 设置时间戳
+
+               String timestamp = new SimpleDateFormat("MMddHHmmss").format(Calendar.getInstance().getTime());
+
+               message.setTimestamp(timestamp);
+
+               // 设置账号
+
+               message.setUserid(userid.toUpperCase());
+
+               // 对密码进行加密
+
+               String passwordStr = userid.toUpperCase() + "00000000" + pwd + timestamp;
+
+               message.setPwd(getMD5Str(passwordStr));
+
+
+               // 调用底层请求方法
+
+               String Message = executePost(message, "http://" + ip + ":" + port + "/sms/v2/std/multi_send");
+
+               // Message为-310099,则请求失败，否则请求成功。
+
+               if(String.valueOf(ERROR_310099).equals(Message))
+
+               {
+
+                    // 返回错误码 个性化群发失败
+
+                    System.out.println("个性化群发提交失败！");
+
+                    return;
+
+               }
+
+
+               // 处理返回结果
+
+               if(Message != null && !"".equals(Message.trim()))
+
+               {
+
+                    // 解析JSON
+
+                    JSONObject parseObject = (JSONObject) JSONValue.parse(Message);
+
+                    // 获取是否成功标识
+
+                    returnInt = Integer.parseInt(String.valueOf(parseObject.get("result")));
+
+                    // returnInt为0，则代表提交成功
+
+                    if(returnInt == 0)
+
+                    {
+
+                         // 平台返回流水号
+
+                         Long rMsgid = (Long) parseObject.get("msgid");
+
+                         // 平台返回的custid
+
+                         String rCustid = (String) parseObject.get("custid");
+
+                         String returnValue = multixMts.get(0).getMobile() + "," + rCustid + "," + rMsgid;
+
+                         System.out.println("个性化群发提交成功！" + returnValue);
+
+                    }
+
+                    else
+
+                    {
+
+                         System.out.println("个性化群发提交失败,错误码：" + returnInt);
+
+                    }
+
+               }
+
+          }
+
+          catch (Exception e)
+
+          {
+
+               // 异常处理
+
+               e.printStackTrace();
+
+          }
+
+     }
+
+
+package com.montnets.mwgate.smsutil;
+
+
+/**
+
+ * @功能概要：个性化信息详情类, 实体类的get和set方法请通过开发工具生成
+
+ * @公司名称： ShenZhen Montnets Technology CO.,LTD.
+
+ */
+
+public class MultiMt
+
+{
+
+     // 短信接收的手机号
+
+     private String     mobile;
+
+
+     // 短信内容
+
+     private String     content;
+
+
+     // 扩展号
+
+     private String     exno;
+
+
+     // 用户自定义流水编号
+
+     private String     custid;
+
+
+     // 自定义扩展数据
+
+     private String     exdata;
+						</p>
+					</div>
+				</div>
+				<div class="daima-cont">
+					<h2>获取上行</h2>
+					<div class="down-cont">
+						<p>
+							/**
+
+      * @description 获取上行
+
+      */
+
+     public static void getMo()
+
+     {
+
+          int     ERROR_310099     = -310099;
+
+          try
+
+          {
+
+               //IP或者域名
+
+               String ip="192.169.1.168";
+
+               //端口
+
+               int port=8082;
+
+               //账号
+
+               String userid="TEST01";
+
+               //密码
+
+               String pwd="123456";
+
+              
+
+               Message message = new Message();
+
+
+               // 设置账号
+
+               message.setUserid(userid.toUpperCase());
+
+
+               // 设置时间戳
+
+               String timestamp = new SimpleDateFormat("MMddHHmmss").format(Calendar.getInstance().getTime());
+
+               message.setTimestamp(timestamp);
+
+
+               // 对密码进行加密
+
+               String passwordStr = userid.toUpperCase() + "00000000" + pwd + timestamp;
+
+               message.setPwd(getMD5Str(passwordStr));
+
+
+               // 设置最大获取上行的行数为100行
+
+               message.setRetsize(100);
+
+
+               // 调用底层请求方法
+
+               String Message = executePost(message, "http://" + ip + ":" + port + "/sms/v2/std/get_mo");
+
+               // Message为-310099,则请求获取上行接口失败，否则请求获取上行接口成功
+
+               if(String.valueOf(ERROR_310099).equals(Message))
+
+               {
+
+                    // 返回错误码 获取上行失败
+
+                    System.out.println("获取上行失败！");
+
+                    return;
+
+               }
+
+
+               // 处理返回结果
+
+               if(Message != null && !"".equals(Message.trim()))
+
+               {
+
+                    // 解析JSON
+
+                    MOS nearMO = new Gson().fromJson(Message, MOS.class);
+
+                    // result为0时，则获取上行成功
+
+                    if(nearMO.getResult() == 0)
+
+                    {
+
+                         List<MO> mos = new ArrayList<MO>();
+
+                         // 获取mo集合
+
+                         mos.addAll(nearMO.getMos());
+
+                         // 循环获取到的上行，对上行内容进行URLDecoder解码
+
+                         MO mo = null;
+
+                         for (int i = 0; i < mos.size(); i++)
+
+                         {
+
+                              mo = mos.get(i);
+
+                              // 解码
+
+                              mos.get(i).setContent(URLDecoder.decode(mo.getContent(), "UTF-8"));
+
+                         }
+
+
+                         // 代码示例是将上行信息打印出来
+
+                         System.out.println("获取上行成功！获取到的上行有" + mos.size() + "条记录。");
+
+                         for (int i = 0; i < mos.size(); i++)
+
+                         {
+
+                              mo = mos.get(i);
+
+                              System.out.println("上行记录:" + "msgid:" + mo.getMsgid() + ",mobile:" + mo.getMobile() + ",spno:" + mo.getSpno() + ",exno:" + mo.getExno() + ",rtime:" + mo.getRtime() + ",content:" + mo.getContent());
+
+                         }
+
+                    }
+
+                    else
+
+                    {
+
+                         // 获取上行失败
+
+                         // 返回错误码
+
+                         System.out.println("获取上行失败,错误码:" + nearMO.getResult());
+
+                    }
+
+               }
+
+               else
+
+               {
+
+                    // 获取上行失败
+
+                    System.out.println("获取上行失败！");
+
+               }
+
+          }
+
+          catch (Exception e)
+
+          {
+
+               e.printStackTrace();
+
+          }
+
+     }
+
+
+package com.montnets.mwgate.smsutil;
+
+
+/**
+
+ * @功能概要：上行实体类, 实体类的get和set方法请通过开发工具生成
+
+ * @公司名称： ShenZhen Montnets Technology CO.,LTD.
+
+ */
+
+public class MO
+
+{
+
+     // 平台流水编号
+
+     private Long     msgid;
+
+
+     // 上行手机号
+
+     private String     mobile;
+
+
+     // 上行通道号
+
+     private String     spno;
+
+
+     // 上行扩展子号
+
+     private String     exno;
+
+
+     // 上行时间
+
+     private String     rtime;
+
+
+     // 上行内容
+
+     private String     content;
+
+}
+
+
+package com.montnets.mwgate.smsutil;
+
+
+import java.util.ArrayList;
+
+import java.util.List;
+
+
+
+/**
+
+ * @功能概要：上行集合类
+
+ * @公司名称： ShenZhen Montnets Technology CO.,LTD.
+
+ */
+
+public class MOS
+
+{
+
+     // 获取上行是否成功 0：成功 非0：失败
+
+     private int               result;
+
+
+     // 上行集合
+
+     private List<MO>     mos     = new ArrayList<MO>();
+
+
+     public int getResult()
+
+     {
+
+          return result;
+
+     }
+
+
+     public void setResult(int result)
+
+     {
+
+          this.result = result;
+
+     }
+
+
+     public List<MO> getMos()
+
+     {
+
+          return mos;
+
+     }
+
+
+     public void setMos(List<MO> mos)
+						</p>
+					</div>
+				</div>
+				<div class="daima-cont">
+					<h2>获取状态报告</h2>
+					<div class="down-cont">
+						<p>
+							/**
+
+      * 状态报告
+
+      * @description
+
+      */
+
+     public static void getRpt()
+
+     {
+
+          int     ERROR_310099     = -310099;
+
+          try
+
+          {
+
+               //IP或者域名
+
+               String ip="192.169.1.168";
+
+               //端口
+
+               int port=8082;
+
+               //账号
+
+               String userid="TEST01";
+
+               //密码
+
+               String pwd="123456";
+
+              
+
+               Message message = new Message();
+
+
+               // 设置账号
+
+               message.setUserid(userid.toUpperCase());
+
+
+               // 设置时间戳
+
+               String timestamp = new SimpleDateFormat("MMddHHmmss").format(Calendar.getInstance().getTime());
+
+               message.setTimestamp(timestamp);
+
+
+               // 对密码进行加密
+
+               String passwordStr = userid.toUpperCase() + "00000000" + pwd + timestamp;
+
+               message.setPwd(getMD5Str(passwordStr));
+
+
+               // 设置最大获取状态报告100条
+
+               message.setRetsize(100);
+
+
+               // 调用底层请求方法
+
+               String Message = executePost(message, "http://" + ip + ":" + port + "/sms/v2/std/get_rpt");
+
+               // Message为-310099,则请求获取状态报告接口失败，否则请求状态报告接口成功
+
+               if(String.valueOf(ERROR_310099).equals(Message))
+
+               {
+
+                    // 返回错误码 获取状态报告失败
+
+                    System.out.println("获取状态报告失败！");
+
+                    return;
+
+               }
+
+
+               // 处理返回结果
+
+               if(Message != null && !"".equals(Message))
+
+               {
+
+                    // 解析JSON
+
+                    RPTS nearRPT = new Gson().fromJson(Message, RPTS.class);
+
+                    // result为0时，则获取状态报告成功
+
+                    if(nearRPT.getResult() == 0)
+
+                    {
+
+                         List<RPT> rpts = new ArrayList<RPT>();
+
+                         // 获取rpt集合
+
+                         rpts.addAll(nearRPT.getRpts());
+
+                         // 获取状态报告成功。
+
+                         // 代码示例是将状态报告信息打印出来
+
+                         System.out.println("获取状态报告成功！获取到的状态报告有" + rpts.size() + "条记录。");
+
+                         for (int i = 0; i < rpts.size(); i++)
+
+                         {
+
+                              RPT rpt = rpts.get(i);
+
+                              System.out.println("状态报告记录:" + "msgid:" + rpt.getMsgid() + ",custid:" + rpt.getCustid() + ",pknum:" + rpt.getPknum() + ",pktotal:" + rpt.getPktotal() + ",mobile:" + rpt.getMobile() + ",spno:" + rpt.getSpno() + ",exno:" + rpt.getExno() + ",stime:" + rpt.getStime() + ",rtime:" + rpt.getRtime() + ",status:" + rpt.getStatus() + ",errcode:" + rpt.getErrcode() + ",exdata:" + rpt.getExdata() + ",errdesc:" + rpt.getErrdesc());
+
+                         }
+
+                    }
+
+                    else
+
+                    {
+
+                         // 获取状态报告失败
+
+                         System.out.println("获取状态报告失败,错误码:" + nearRPT.getResult());
+
+                    }
+
+               }
+
+               else
+
+               {
+
+                    // 获取状态报告失败
+
+                    System.out.println("获取状态报告失败！");
+
+               }
+
+
+          }
+
+          catch (Exception e)
+
+          {
+
+               e.printStackTrace();
+
+          }
+
+     }
+
+
+package com.montnets.mwgate.smsutil;
+
+
+/**
+
+ * @功能概要：状态报告类，实体类的get和set方法请通过开发工具生成
+
+ * @公司名称： ShenZhen Montnets Technology CO.,LTD.
+
+ */
+
+public class RPT
+
+{
+
+     // 平台流水编号
+
+     private Long     msgid;
+
+
+     // 用户自定义流水编号
+
+     private String     custid;
+
+
+     // 当前条数
+
+     private Integer     pknum;
+
+
+     // 总条数
+
+     private Integer     pktotal;
+
+
+     // 短信接收的手机号
+
+     private String     mobile;
+
+
+     // 完整的通道号
+
+     private String     spno;
+
+
+     // 扩展号
+
+     private String     exno;
+
+
+     // 状态报告对应的下行发送时间
+
+     private String     stime;
+
+
+     // 状态报告返回时间
+
+     private String     rtime;
+
+
+     // 接收状态,0:成功 非0:失败
+
+     private Integer     status;
+
+
+     // 状态报告错误代码
+
+     private String     errcode;
+
+
+     // 下行时填写的exdata
+
+     private String     exdata;
+
+    
+
+     //状态报告错误代码的描述
+
+     private String errdesc;
+
+}
+
+
+package com.montnets.mwgate.smsutil;
+
+import java.util.ArrayList;
+
+import java.util.List;
+
+
+/**
+
+ * @功能概要：状态报告集合类
+
+ * @公司名称： ShenZhen Montnets Technology CO.,LTD.
+
+ */
+
+public class RPTS
+
+{
+
+     // 获取状态报告是否成功 0：成功 非0：失败
+
+     private int               result;
+
+
+     // 状态报告集合
+
+     private List<RPT>     rpts     = new ArrayList<RPT>();
+
+
+     public int getResult()
+
+     {
+
+          return result;
+
+     }
+
+
+     public void setResult(int result)
+
+     {
+
+          this.result = result;
+
+     }
+
+
+     public List<RPT> getRpts()
+
+     {
+
+          return rpts;
+
+     }
+
+
+     public void setRpts(List<RPT> rpts)
+
+     {
+						</p>
+					</div>
+				</div>
+				<!--<div class="daima-cont">
+					<h2>查询余额</h2>
+					<div class="down-cont">
+						<p>
+							
+
+/**
+
+      * @description 查询余额
+
+      */
+
+     public static void getBalance()
+
+     {
+
+          int     ERROR_310099     = -310099;
+
+          //IP或者域名
+
+          String ip="192.169.1.168";
+
+          //端口
+
+          int port=8082;
+
+          //账号
+
+          String userid="TEST01";
+
+          //密码
+
+          String pwd="123456";
+
+          // 返回值
+
+          int result = -310099;
+
+          try
+
+          {
+
+               Message message = new Message();
+
+               // 设置账号
+
+               message.setUserid(userid.toUpperCase());
+
+
+               // 设置时间戳
+
+               String timestamp = new SimpleDateFormat("MMddHHmmss").format(Calendar.getInstance().getTime());
+
+               message.setTimestamp(timestamp);
+
+
+               // 对密码进行加密
+
+               String passwordStr = userid.toUpperCase() + "00000000" + pwd + timestamp;
+
+               message.setPwd(getMD5Str(passwordStr));
+
+
+               //调用底层请求方法
+
+               String Message = executePost(message, "http://" + ip + ":" + port + "/sms/v2/std/get_balance");
+
+               // Message为-310099,则请求查询余额接口失败，否则请求查询余额接口成功
+
+               if(String.valueOf(ERROR_310099).equals(Message))
+
+               {
+
+                    // 返回错误码 查询余额失败
+
+                    System.out.println("查询余额失败！");
+
+                    return;
+
+               }
+
+         
+
+               // 解析json
+
+               if(Message != null && !"".equals(Message.trim()))
+
+               {
+
+                    JSONObject parseObject = (JSONObject) JSONValue.parse(Message);
+
+                    // 获取是否成功标识
+
+                    result = Integer.parseInt(String.valueOf(parseObject.get("result")));
+
+                    // result为0，则查询余额成功
+
+                    if(result == 0)
+
+                    {
+
+                         // 短信余额
+
+                         int resultBalance = Integer.parseInt(String.valueOf(parseObject.get("balance")));
+
+                         System.out.println("查询余额成功,余额为:" + resultBalance);
+
+                    }
+
+                    else
+
+                    {
+
+                         // result不为0，则是错误码
+
+                         System.out.println("查询余额失败,错误码:" + result);
+
+                    }
+
+               }
+
+          }
+
+          catch (Exception e)
+
+          {
+
+               // 异常处理
+
+               e.printStackTrace();
+
+          }
+
+     }
+
+						</p>
+					</div>
+				</div>-->
+				<div class="daima-cont">
+					<h2>公共方法</h2>
+					<div class="down-cont">
+						<p>
+							/**
+
+      * http请求方法
+
+      *
+
+      * @description
+
+      * @param obj
+
+      *        请求对象
+
+      * @param httpUrl
+
+      *        请求地址
+
+      * @return 请求网关返回的值
+
+      * @throws Exception
+
+      */
+
+     private static String executePost(Object obj, String httpUrl) throws Exception
+
+     {
+
+          int     ERROR_310099     = -310099;
+
+          String result = String.valueOf(ERROR_310099);
+
+          HttpClient httpclient = null;
+
+          try
+
+          {
+
+               Class cls = obj.getClass();
+
+               Field[] fields = cls.getDeclaredFields();
+
+
+               // 定义变量
+
+               String fieldName = null;
+
+               String fieldNameUpper = null;
+
+               Method getMethod = null;
+
+               Object value = null;
+
+               String entityValue = "";
+
+               // 循环拼接请求参数
+
+               for (int i = 0; i < fields.length; i++)
+
+               {
+
+                    fieldName = fields[i].getName();
+
+                    fieldNameUpper = Character.toUpperCase(fieldName.charAt(0)) + fieldName.substring(1);
+
+                    getMethod = cls.getMethod("get" + fieldNameUpper);
+
+                    value = getMethod.invoke(obj);
+
+                    if(value != null)
+
+                    {
+
+                         // 拼接请求参数
+
+                         entityValue += fieldName + "=" + String.valueOf(value) + "&";
+
+                    }
+
+               }
+
+               // 定义请求头
+
+               HttpPost httppost = new HttpPost(httpUrl);
+
+               httppost.setHeader("Content-Type", "text/x-www-form-urlencoded");
+
+
+               // 去掉最后一个&符号
+
+               entityValue = entityValue.substring(0, entityValue.length() - 1);
+
+
+               StringEntity stringEntity = new StringEntity(entityValue, HTTP.UTF_8);
+
+
+               // 设置参数的编码UTF-8
+
+               httppost.setEntity(stringEntity);
+
+
+               // 创建连接
+
+               httpclient = new DefaultHttpClient();
+
+
+               // 设置请求超时时间 设置为5秒
+
+               httpclient.getParams().setParameter(CoreConnectionPNames.CONNECTION_TIMEOUT, 5 * 1000);
+
+               // 设置响应超时时间 设置为60秒
+
+               httpclient.getParams().setParameter(CoreConnectionPNames.SO_TIMEOUT, 60 * 1000);
+
+
+               HttpEntity entity = null;
+
+               HttpResponse httpResponse = null;
+
+
+               try
+
+               {
+
+                    // 向网关请求
+
+                    httpResponse = httpclient.execute(httppost);
+
+                    // 若状态码为200，则代表请求成功
+
+                    if(httpResponse != null && httpResponse.getStatusLine().getStatusCode() == 200)
+
+                    {
+
+                         // 获取响应的实体
+
+                         entity = httpResponse.getEntity();
+
+                         // 响应的内容不为空，并且响应的内容长度大于0,则获取响应的内容
+
+                         if(entity != null && entity.getContentLength() > 0)
+
+                         {
+
+                              try
+
+                              {
+
+                                   // 请求成功，能获取到响应内容
+
+                                   result = EntityUtils.toString(entity);
+
+                              }
+
+                              catch (Exception e)
+
+                              {
+
+                                   e.printStackTrace();
+
+                                   // 获取内容失败，返回空字符串
+
+                                   result = "";
+
+                              }
+
+                         }
+
+                         else
+
+                         {
+
+                              // 请求成功，但是获取不到响应内容
+
+                              result = "";
+
+                         }
+
+                    }
+
+                    else
+
+                    {
+
+                         // 设置错误码
+
+                         result = String.valueOf(ERROR_310099);
+
+                         System.out.println("请求失败：" + httpResponse.getStatusLine().toString());
+
+                    }
+
+
+               }
+
+               catch (Exception e)
+
+               {
+
+                    result = String.valueOf(ERROR_310099);
+
+                    e.printStackTrace();
+
+               }
+
+          }
+
+          catch (Exception e)
+
+          {
+
+               result = String.valueOf(ERROR_310099);
+
+               e.printStackTrace();
+
+          }
+
+          finally
+
+          {
+
+               // 关闭连接
+
+               if(httpclient != null)
+
+               {
+
+                    try
+
+                    {
+
+                         httpclient.getConnectionManager().shutdown();
+
+                    }
+
+                    catch (Exception e2)
+
+                    {
+
+                         // 关闭连接失败
+
+                         e2.printStackTrace();
+
+                    }
+
+
+               }
+
+          }
+
+          return result;
+
+
+     }
+
+
+     /**
+
+      * MD5加密方法
+
+      *
+
+      * @description
+
+      * @param str
+
+      *        需要加密的字符串
+
+      * @return 返回加密后的字符串
+
+      */
+
+     private static String getMD5Str(String str)
+
+     {
+
+          MessageDigest messageDigest = null;
+
+          // 加密前的准备
+
+          try
+
+          {
+
+               messageDigest = MessageDigest.getInstance("MD5");
+
+
+               messageDigest.reset();
+
+
+               messageDigest.update(str.getBytes("UTF-8"));
+
+          }
+
+          catch (Exception e)
+
+          {
+
+               e.printStackTrace();
+
+               // 初始化加密类失败，返回null。
+
+               return null;
+
+          }
+
+
+          byte[] byteArray = messageDigest.digest();
+
+
+          // 加密后的字符串
+
+          StringBuffer md5StrBuff = new StringBuffer();
+
+
+          for (int i = 0; i < byteArray.length; i++)
+
+          {
+
+               if(Integer.toHexString(0xFF & byteArray[i]).length() == 1)
+
+               {
+
+                    md5StrBuff.append("0").append(Integer.toHexString(0xFF & byteArray[i]));
+
+               }
+
+               else
+
+               {
+
+                    md5StrBuff.append(Integer.toHexString(0xFF & byteArray[i]));
+
+               }
+
+          }
+
+
+          return md5StrBuff.toString();
+
+     }
+						</p>
+					</div>
+				</div>
+				<div class="daima-cont">
+					<h2>公共类</h2>
+					<div class="down-cont">
+						<p>
+							
+
+package com.montnets.mwgate.smsutil;
+
+
+/**
+
+ * @功能概要： 短信请求实体类, 实体类的get和set方法请通过开发工具生成
+
+ * @公司名称： ShenZhen Montnets Technology CO.,LTD.
+
+ */
+
+public class Message
+
+{
+
+     // 用户账号
+
+     private String     userid;
+
+
+     // 用户密码
+
+     private String     pwd;
+
+
+     //短信接收的手机号，用英文逗号(,)分隔，最大1000个号码。一次提交的号码类型不受限制，但手机会做验证，若有不合法的手机号将会被退回。号码段类型分为：移动、联通、电信手机
+
+     // 注意：请不要使用中文的逗号
+
+     private String     mobile;
+
+
+     //最大支持350个字，一个字母或一个汉字都视为一个字
+
+     private String     content;
+
+
+     // 时间戳,格式为:MMDDHHMMSS,即月日时分秒,定长10位,月日时分秒不足2位时左补0.时间戳请获取您真实的服务器时间,不要填写固定的时间,否则pwd参数起不到加密作用
+
+     private String     timestamp;
+
+
+     // 扩展号
+
+     // 长度由账号类型定4-6位，通道号总长度不能超过20位。如：10657****主通道号，3321绑定的扩展端口，主+扩展+子端口总长度不能超过20位。
+
+     private String     exno;
+
+
+     // 该条短信在您业务系统内的用户自定义流水编号，比如订单号或者短信发送记录的流水号。填写后发送状态返回值内将包含这个ID.最大可支持64位的字符串
+
+     private String     custid;
+
+
+     // 额外提供的最大64个长度的自定义扩展数据.填写后发送状态返回值内将会包含这部分数据
+
+     private String     exdata;
+
+
+     // 批量短信请求包。该字段中包含N个短信包结构体。N的范围为1~100。
+
+     private String     multimt;    
+
+
+     // 获取上行或者状态报告的最大条数
+
+     private Integer     retsize;
+
+    
+
+     //业务类型
+
+     private String svrtype;
+
+//apikey
+
+     private String apikey;
+
+						</p>
+					</div>
+				</div>
+				</div>
+			</div> 
+			
+		 </div>
+		<!-- 文档中间部分  结束结束-->
+		
+		<!--公共底部-->
+		<div class="common_footer"></div>
+	</body>
+    <script src="../config/configuration.js"></script>
+	<script src="../frame/js/loadCommon.js"></script>
+	<script src="./js/nav.js" type="text/javascript" charset="utf-8"></script>
+	<script src="./js/api.js" type="text/javascript" charset="utf-8"></script>
+</html>
