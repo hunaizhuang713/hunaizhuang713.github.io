@@ -1,0 +1,23 @@
+{
+"title":"1.获取上行接口",
+"jkdefine":"POST方式请求http://api01.monyun.cn:7901/sms/v2/std/get_mo",
+"reqdesc":"",
+"reqparam":[
+{"param_key":"userid","param_type":"string","param_need":"是","param_desc":"发送账号：长度最大6个字符，统一大写，如提交参数中包含apikey，则可以不用填写该参数及pwd，两种鉴权方式中只能选择一种方式来进行鉴权"},
+{"param_key":"pwd","param_type":"string","param_need":"是","param_desc":"发送账号密码：定长小写32位字符，如提交参数中包含apikey，则可以不用填写该参数及userid，两种鉴权方式中只能选择一种方式来进行鉴权。密码规则详见电脑版开发文档附录"},
+{"param_key":"apikey","param_type":"string","param_need":"否","param_desc":"用户唯一标识：32位长度，由梦网提供，与userid及pwd一样用于鉴权，如提交参数中包含userid及pwd，则可以不用填写该参数"},
+{"param_key":"timestamp","param_type":"string","param_need":"否","param_desc":"时间戳：24小时制格式：MMDDHHMMSS，即月日时分秒，定长10位，月、日、时、分、秒每段不足2位时左补0，密码选择MD5加密方式时必填该参数，密码选择明文方式时则不用填写"},
+{"param_key":"retsize","param_type":"string","param_need":"否","param_desc":"每次请求想要获取的上行最大条数。最大200，超过200按200返回。小于等于0或不填时，系统返回默认条数，默认100条"}
+],
+"reqotherdesc":"",
+"reqotherparam":[],
+"respparamdesc":"",
+"respparam":[],
+"respotherdesc":"1.3.1 mos包结构参数说明",
+"respotherparam":[{"param_key":"msgid","param_type":"long(64位)","param_need":"是","param_desc":"平台流水号：上行在梦网云通信平台中的唯一编号"},{"param_key":"mobile","param_type":"string","param_need":"是","param_desc":"手机号：号码规则详见电脑版开发文档附录"},{"param_key":"spno","param_type":"string","param_need":"是","param_desc":"完整的通道号"},{"param_key":"exno","param_type":"string","param_need":"是","param_desc":"下行时填写的exno"},{"param_key":"rtime","param_type":"string","param_need":"是","param_desc":"上行返回的时间：YYYY-MM-DD HH:MM:SS"},{"param_key":"content","param_type":"string","param_need":"是","param_desc":"短信内容：最大支持350个字，一个字母或一个汉字都视为一个字。编码方法：urlencode（UTF-8明文）"}
+],
+"respdesc":[
+{"param_key":"result","param_type":"int","param_desc":"短信发送请求处理结果：0：成功；非0：失败。错误代码详见电脑版开发文档附录"},
+{"param_key":"mos","param_type":"string","param_desc":"result非0时mos为空"}
+]
+}

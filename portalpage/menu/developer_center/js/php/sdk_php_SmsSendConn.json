@@ -1,0 +1,13 @@
+{
+"title":"设置长连接或短连接",
+"jkdefine":"Public function SmsSendConn($isKeepAlive);",
+"reqdesc":"",
+"reqparam":[
+{"param_key":"isKeepAlive","param_type":"boolean","param_need":"是","param_desc":"是否保持长连接，true保持长连接，false短连接"}
+],
+"reqotherdesc":"",
+"reqotherparam":[],
+"respdesc":[
+{"resp_desc":"构造函数无返回值。"}
+]
+}

@@ -1,0 +1,30 @@
+{
+"title":"获取状态报告",
+"jkdefine":"public int getRpt(String userid, int retsize ,List<RPT> rpts);",
+"reqdesc":"",
+"reqparam":[
+{"param_key":"userid","param_type":"string","param_need":"否","param_desc":"用户账号：长度最大6个字节，统一大写"},
+{"param_key":"retsize","param_type":"int","param_need":"否","param_desc":"本次请求想要获取的上行最大条数。最大返回500条，超过500条按500条返回"},
+{"param_key":"rpts","param_type":"List<RPT>","param_need":"是","param_desc":"获取状态报告接口返回的状态报告集合：list不能为空且长度必须为0，详见下表"}
+],
+"reqotherdesc":"rpts结构参数说明",
+"reqotherparam":[
+{"param_key":"msgid","param_type":"long(64位)","param_need":"是","param_desc":"对应下行请求返回结果中的msgid"},
+{"param_key":"custid","param_type":"string","param_need":"是","param_desc":"对应下行请求时填写的custid"},
+{"param_key":"pknum","param_type":"int","param_need":"否","param_desc":"当前条数"},
+{"param_key":"pktotal","param_type":"int","param_need":"是","param_desc":"总条数"},
+{"param_key":"mobile","param_type":"string","param_need":"是","param_desc":"手机号"},
+{"param_key":"spno","param_type":"string","param_need":"是","param_desc":"完整的通道号"},
+{"param_key":"exno","param_type":"string","param_need":"是","param_desc":"下行时填写的exno"},
+{"param_key":"stime","param_type":"string","param_need":"是","param_desc":"状态报告对应的下行发送时间：YYYY-MM-DD HH:MM:SS"},
+{"param_key":"rtime","param_type":"string","param_need":"是","param_desc":"状态报告返回时间：YYYY-MM-DD HH:MM:SS"},
+{"param_key":"status","param_type":"int","param_need":"是","param_desc":"接收状态：0：成功；非0：失败"},
+{"param_key":"errcode","param_type":"string","param_need":"是","param_desc":"详细错误原因编码"},
+{"param_key":"errdesc","param_type":"string","param_need":"是","param_desc":"状态代码错误描述"},
+{"param_key":"exdata","param_type":"string","param_need":"是","param_desc":"下行时填写的exdata"}
+],
+"respdesc":[
+{"resp_desc":"设置成功：返回值为0，获取状态报告成功。rpts返回状态报告集合。"},
+{"resp_desc":"设置失败：返回值非0，返回值为错误代码。错误代码详见电脑版开发文档附录。"}
+]
+}

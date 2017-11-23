@@ -1,0 +1,26 @@
+{
+"title":"1.模板发送接口",
+"jkdefine":"POST方式请求http://api01.monyun.cn:7901/voice/v2/std/template_send",
+"reqdesc":"",
+"reqparam":[
+{"param_key":"userid","param_type":"string","param_need":"是","param_desc":"发送账号：长度最大6个字符，统一大写，如提交参数中包含apikey，则可以不用填写该参数及pwd，两种鉴权方式中只能选择一种方式来进行鉴权"},
+{"param_key":"pwd","param_type":"string","param_need":"是","param_desc":"发送账号密码：定长小写32位字符，如提交参数中包含apikey，则可以不用填写该参数及userid，两种鉴权方式中只能选择一种方式来进行鉴权。密码规则详见电脑版开发文档附录"},
+{"param_key":"apikey","param_type":"string","param_need":"否","param_desc":"用户唯一标识：32位长度，由梦网提供，与userid及pwd一样用于鉴权，如提交参数中包含userid及pwd，则可以不用填写该参数"},
+{"param_key":"mobile","param_type":"string","param_need":"是","param_desc":"语音接收的手机号：只能填一个手机号码。号码规则详见电脑版开发文档附录"},
+{"param_key":"content","param_type":"string","param_need":"是","param_desc":"语音内容：编码方法：urlencode（GBK明文）当msgtype为1时，表示是语音验证码，支持4个字或6个字，只能是数字或者字母，不区分大小写"},
+{"param_key":"timestamp","param_type":"string","param_need":"否","param_desc":"时间戳：24小时制格式：MMDDHHMMSS,即月日时分秒，定长10位,月、日、时、分、秒每段不足2位时左补0，密码选择MD5加密方式时必填该参数，密码选择明文方式时则不用填写"},
+{"param_key":"exno","param_type":"string","param_need":"否","param_desc":"回拨显示的号码，目前不支持使用，请勿输入，（可用不传），如果输入会下单不成功返回错误码 ,错误代码详见电脑版开发文档附录"},
+{"param_key":"custid","param_type":"string","param_need":"否","param_desc":"用户自定义流水号：该条语音在您业务系统内的ID，比如订单号或者语音发送记录的流水号。填写后发送状态返回值内将包含用户自定义流水号。最大可支持32位的ASCII字符串：字母、数字、下划线、减号"},
+{"param_key":"tmplid","param_type":"string","param_need":"否","param_desc":"语音模板编号:当msgtype为1时，语音模板编号为非必须项，如不传或填空，则使用梦网自带的语音模板发送语音验证码"},
+{"param_key":"msgtype","param_type":"string","param_need":"是","param_desc":"消息类型 1：语音验证码"}
+],
+"reqotherdesc":"",
+"reqotherparam":[],
+"respparamdesc":"",
+"respparam":[],
+"respdesc":[
+{"param_key":"result","param_type":"int","param_need":"是","param_desc":"单条语音发送请求处理结果：成功：返回0；失败：返回错误码，详见错误码代码表"},
+{"param_key":"msgid","param_type":"long(64位)","param_need":"是","param_desc":"平台流水编号：非0,64位整型，对应Java和C#的long，不可用int解析。result非0时，msgid为0"},
+{"param_key":"custid","param_type":"string","param_need":"是","param_desc":"用户自定义流水号：默认与请求报文中的custid保持一致，若请求报文中没有custid参数或值为空，则返回由梦网生成的代表本批短信的唯一编号，result非0时，custid为空"}
+]
+}

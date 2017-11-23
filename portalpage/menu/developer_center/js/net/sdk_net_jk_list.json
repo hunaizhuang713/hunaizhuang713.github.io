@@ -1,0 +1,13 @@
+{"dataList":
+[
+{"jkname":"设置全局参数","jkdefine":"setGlobalParams","jkdesc":"设置全局参数，目前能设置请求路径"},
+{"jkname":"设置账号信息","jkdefine":"setAccountInfo","jkdesc":"设置账号信息的接口，设置账号、密码、发送优先级、主IP、主端口、备用IP、备用端口"},
+{"jkname":"实例化短信对象","jkdefine":"SmsSendConn","jkdesc":"实例化短信对象"},
+{"jkname":"单条发送","jkdefine":"singleSend","jkdesc":"单条发送接口"},
+{"jkname":"相同内容群发","jkdefine":"batchSend","jkdesc":"相同内容群发接口"},
+{"jkname":"个性化群发","jkdefine":"multiSend","jkdesc":"个性化群发接口"},
+{"jkname":"查询余额","jkdefine":"getRemains","jkdesc":"查询剩余金额或条数接口，传入账号和密码可以查询剩余金额或条数"},
+{"jkname":"获取上行","jkdefine":"getMo","jkdesc":"获取上行接口，传入账号和密码可以查询上行"},
+{"jkname":"获取状态报告","jkdefine":"getRpt","jkdesc":"获取状态报告接口，传入账号和密码可以查询状态报告"},
+{"jkname":"移除账号","jkdefine":"removeAccount","jkdesc":"移除账号接口，传入账号可以移除设置的对应账号"}
+],"resultCode":"0"}
